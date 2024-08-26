@@ -1,0 +1,93 @@
+{
+	"generic": {
+		"dictionary": {
+			"abbreviation": {
+				"aka": "Also known as"
+			},
+			"or": "or",
+
+		},
+		"identity": {
+			"me": {
+				"name": {
+					"first": "Techit",
+					"firstLast": "Techit Thawiang",
+					"last": "Thawiang",
+					"nick": "Sumo"
+				}
+			}
+		},
+		"license": {
+			"type": {
+				"MIT": "MIT License"
+			}
+		},
+		"navigate": {
+			"category": {
+				"legal": "Legal"
+			},
+			"pages": {
+				"blog": "Blog",
+				"contact": "Contact",
+				"copyrightNotice": "Copyright Notice"
+			}
+		}
+	},
+	"pages": {
+		"blog": {
+			"hero": {
+				"description": "A place for me to posts whatever I wanted to. Such as updating my life, reviewing stuff, posting something smart or just yap about my life. All will be here."
+			}
+		},
+		"copyrightNotice": {
+			"notice": {
+				"1": {
+					"1": "The code for this website is released under the ",
+					"2": "You are free to use, modify, and distribute the code in accordance with the terms of the"
+				}
+			}
+		},
+		"home": {
+			"aboutMe": {
+				"greeting": "Hello",
+				"myNameIs": "My name is...",
+				"whoAmI": {
+					"content": "I'm currently a Grade 9 student at Kophotuayngamwittaya School. I plan to continue my studies in Grades 10-12 at the same school, focusing on the Science-Mathematics program. I have a passion for front-end development and enjoy creating user-friendly web interfaces. I also have plans to make games, font, literally every digital art!",
+					"title": "Who am I?"
+				}
+			}
+		}
+	},
+	"ui": {
+		"action": {
+			"new": "New",
+			"readMore": "Read more",
+			"goBack": "Go back",
+			"goForward": "Go forward",
+			"refresh": "Refresh",
+			"go": "Go",
+			"goTo": "Go to",
+			"close": "Close"
+		},
+		"navigate": {
+			"blog": "Blog",
+			"category": {
+				"legal": "Legal",
+				"menu": "Menu",
+				"social": "Social"
+			},
+			"contact": "Contact",
+			"copyrightNotice": "Copyright Notice",
+			"home": "Home"
+		},
+		"system": {
+			"loading": "Loading"
+		},
+		"tooltips": {
+			"navigationBar": {
+				"goBackHome": "Go back to Homepage.",
+				"langSwitcher": "Switch between English and Thai"
+			}
+		}
+	}
+}

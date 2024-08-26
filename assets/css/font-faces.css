@@ -1,0 +1,8 @@
+@font-face {
+    font-family: 'Tlwg Typo';
+    src: url(https://files.techit.win/fonts/TLWG/TlwgTypo.ttf) format('truetype');
+}
+
+.twlg-typo {
+    font-family: 'Tlwg Typo';
+}

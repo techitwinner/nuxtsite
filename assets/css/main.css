@@ -1,0 +1,108 @@
+@import "animations.css";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+    font-family: 'Bricolage Grotesque', 'Noto Sans Thai', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, Noto Sans, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
+    font-size: 20px;
+    font-optical-sizing: auto;
+    font-style: normal;
+    font-variation-settings: "wdth" 100;
+
+    --nuxt-color-primary: 74,222,128;
+}
+
+.bg-aurora {
+    background-image: image('https://files.techit.win/images/background/AuroraScratch@2x.png');
+
+}
+
+h0 {
+    @apply text-[3.5rem] font-bold mt-4 mb-2
+}
+
+h1 {
+    @apply text-5xl font-bold mt-4 mb-2;
+}
+
+h2 {
+    @apply text-4xl font-semibold mt-4 mb-2;
+}
+
+h3 {
+    @apply text-3xl font-semibold mt-4 mb-2;
+}
+
+h4 {
+    @apply text-2xl font-medium mt-4 mb-2;
+}
+
+h5 {
+    @apply text-xl font-medium mt-4 mb-2;
+}
+
+h6 {
+    @apply text-base font-medium mt-4 mb-2;
+}
+
+.wdth-150 {
+    font-variation-settings: "wdth" 150;
+}
+
+.wdth-75 {
+    font-variation-settings: "wdth" 75;
+}
+
+.main-border {
+    @apply border border-black border-opacity-10 dark:border dark:border-white dark:border-opacity-10
+}
+
+.main-border-b {
+    @apply border-b border-black border-opacity-10 dark:border dark:border-white dark:border-opacity-10
+}
+
+.main-border-t {
+    @apply border-t border-black border-opacity-10 dark:border dark:border-white dark:border-opacity-10
+}
+
+.main-border-l {
+    @apply border-l border-black border-opacity-10 dark:border dark:border-white dark:border-opacity-10
+}
+
+.main-border-r {
+    @apply border-r border-black border-opacity-10 dark:border dark:border-white dark:border-opacity-10
+}
+
+.main-border-x {
+    @apply border-x border-black border-opacity-10 dark:border dark:border-white dark:border-opacity-10
+}
+
+.main-border-y {
+    @apply border-y border-black border-opacity-10 dark:border dark:border-white dark:border-opacity-10
+}
+
+.main-border,.main-border-t,.main-border-b,.main-border-x,.main-border-y,.main-border-l,.main-border-r,.main-border-x,.main-border-y {
+    @apply rounded-md overflow-hidden
+}
+
+.bento-p {
+    @apply px-6 py-6 leading-tight;
+}
+
+.border-primary {
+    border-color: rgba(var(--nuxt-color-primary), 1);
+}
+
+* ::selection {
+    background-color: black !important;
+    color: white !important;
+}
+
+@media (prefers-color-scheme: dark) {
+    * ::selection {
+        background-color: white !important;
+        color: black !important;
+    }
+}
