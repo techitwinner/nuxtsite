@@ -5,7 +5,7 @@
 				"aka": "Also known as"
 			},
 			"or": "or",
-
+			"eMail": "E-mail"
 		},
 		"identity": {
 			"me": {
@@ -55,6 +55,26 @@
 					"content": "I'm currently a Grade 9 student at Kophotuayngamwittaya School. I plan to continue my studies in Grades 10-12 at the same school, focusing on the Science-Mathematics program. I have a passion for front-end development and enjoy creating user-friendly web interfaces. I also have plans to make games, font, literally every digital art!",
 					"title": "Who am I?"
 				}
+			},
+			"contact": {
+				"getInTouch": {
+					"title": "Get in Touch",
+					"content": "I’d love to hear from you! Whether you have a question, a project in mind, or just want to connect, feel free to reach out. Let’s start a conversation and explore how we can work together."
+				}
+			},
+			"technology": {
+				"title": "Technology",
+				"content": {
+					"1": {
+						"title": "Languages"
+					},
+					"2": {
+						"title": "Software & Services"
+					},
+					"3": {
+						"title": "Framework"
+					}
+				}
 			}
 		}
 	},
@@ -79,6 +99,10 @@
 			"contact": "Contact",
 			"copyrightNotice": "Copyright Notice",
 			"home": "Home"
+		},
+		"footer": {
+			"respectiveOwner": "Any logos or trademarks used on this website are the property of their respective owners.",
+			"sourceCode": "Source Code"
 		},
 		"system": {
 			"loading": "Loading"

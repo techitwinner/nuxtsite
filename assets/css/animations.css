@@ -1,4 +1,12 @@
 /* Define the fade-in animation */
+:root {
+    --bounceIn: 0.25,1,0.5,1;
+    --bounceOut: 0.5,2,0,1;
+    --absoluteInOut: 1,0,0,1;
+    --easeOut: 0.25,1,0.25,1;
+    --easeIn: 0.75,0,0.75,0;
+}
+
 @keyframes fadeIn {
     from {
         opacity: 0;
@@ -27,6 +35,33 @@
 .fade-in-but-faster {
     opacity:0;
     animation: fadeIn 0.25s ease-in forwards;
+}
+
+.shake-hover {
+    display: inline-block; /* Optional: allows the effect to apply correctly */
+    transition: transform 0.2s ease-in-out; /* Smooth transition */
+}
+
+.shake-hover:hover {
+    animation: shake 0.5s ease-in-out infinite; /* Apply the shake animation on hover */
+}
+
+@keyframes shake {
+    0% {
+        transform: rotate(-.5deg);
+    }
+    25% {
+        transform: rotate(.5deg);
+    }
+    50% {
+        transform: rotate(-.5deg);
+    }
+    75% {
+        transform: rotate(.5deg);
+    }
+    100% {
+        transform: rotate(-.5deg);
+    }
 }
 
 /* ABSOLUTE IN OUT : cubic-bezier(1,0,0,1) */

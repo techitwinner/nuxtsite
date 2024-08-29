@@ -2,12 +2,13 @@
   <div>
     <div class="fixed -z-[100] h-full w-full bg-slate-100 dark:bg-slate-950"></div>
     <NavigationHead/>
-    <NavigationBar :show-extra="!isHeaderVisible"/>
+    <NavigationBar/>
     <main class="flex flex-col bg-slate-100 dark:bg-slate-950 items-center">
       <div class="flex flex-col w-full">
         <slot/>
       </div>
     </main>
+    <Footer/>
   </div>
 </template>
 
@@ -21,25 +22,16 @@
     max-width: 1024px;
     width: 100%;
   }
+  #wrapper2 {
+    @apply flex flex-col items-center gap-8 z-[1] max-w-[1024px] px-4 py-8 w-full;
+  }
 }
 </style>
 
 <script setup lang="ts">
-  import { ref, onMounted } from 'vue';
+  import { ref, provide } from 'vue';
 
-  const isHeaderVisible = ref(true);
-  const headerRef = ref(null);
+  const drawerState = ref({ isOpen: false });
 
-  onMounted(() => {
-    const observer = new IntersectionObserver(
-        ([entry]) => {
-          isHeaderVisible.value = entry.isIntersecting;
-        },
-        { threshold: 0 }
-    );
-
-    if (headerRef.value) {
-      observer.observe(headerRef.value);
-    }
-  });
+  provide('drawerState', drawerState);
 </script>
