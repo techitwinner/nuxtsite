@@ -5,7 +5,8 @@
 				"aka": "Also known as"
 			},
 			"or": "or",
-			"eMail": "E-mail"
+			"eMail": "E-mail",
+			"with": "with"
 		},
 		"identity": {
 			"me": {
@@ -35,9 +36,7 @@
 	},
 	"pages": {
 		"blog": {
-			"hero": {
-				"description": "A place for me to posts whatever I wanted to. Such as updating my life, reviewing stuff, posting something smart or just yap about my life. All will be here."
-			}
+			"description": "A place for me to posts whatever I wanted to. Such as updating my life, reviewing stuff, posting something smart or just yap about my life. All will be here."
 		},
 		"copyrightNotice": {
 			"notice": {
@@ -91,18 +90,27 @@
 		},
 		"navigate": {
 			"blog": "Blog",
-			"category": {
-				"legal": "Legal",
-				"menu": "Menu",
-				"social": "Social"
-			},
 			"contact": "Contact",
 			"copyrightNotice": "Copyright Notice",
-			"home": "Home"
+			"home": "Home",
+			"tools": "Tools",
+			"projects": "Projects"
+		},
+		"error": {
+			"try": "Try these buttons, to see if it's going to fix.",
+			"back": "Go back Home",
+			"ohNo": "Oh no",
+			"tag": "Oops! Something went wrong. Please try again later."
 		},
 		"footer": {
 			"respectiveOwner": "Any logos or trademarks used on this website are the property of their respective owners.",
-			"sourceCode": "Source Code"
+			"sourceCode": "Source Code",
+			"category": {
+				"legal": "Legal Stuff",
+				"siteMap": "Site Map",
+				"social": "Social",
+				"bookmark": "Bookmark"
+			}
 		},
 		"system": {
 			"loading": "Loading"
@@ -110,7 +118,8 @@
 		"tooltips": {
 			"navigationBar": {
 				"goBackHome": "Go back to Homepage.",
-				"langSwitcher": "Switch between English and Thai"
+				"langSwitcher": "Switch between English, German and Thai",
+				"themeSwitcher": "Switch between System, Light and Dark theme."
 			}
 		}
 	}

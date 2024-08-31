@@ -1,0 +1,116 @@
+{
+  "generic": {
+    "dictionary": {
+      "abbreviation": {
+        "aka": "Auch bekannt als"
+      },
+      "or": "oder",
+      "eMail": "E-mail",
+      "with": "mit"
+    },
+    "identity": {
+      "me": {
+        "name": {
+          "first": "Techit",
+          "firstLast": "Techit Thawiang",
+          "last": "Thawiang",
+          "nick": "Sumo"
+        }
+      }
+    },
+    "license": {
+      "type": {
+        "MIT": "MIT-Lizenz"
+      }
+    }
+  },
+  "pages": {
+    "blog": {
+      "description": "Ein Ort für mich, an dem ich alles posten kann, was ich möchte. Ob es Updates aus meinem Leben, Rezensionen, kluge Gedanken oder einfach nur Alltagsgeschwätz sind – hier findet alles seinen Platz."
+    },
+    "copyrightNotice": {
+      "notice": {
+        "1": {
+          "1": "Der Code für diese Website wird unter der ",
+          "2": "Du darfst den Code verwenden, ändern und weiterverbreiten, solange du dich an die Bedingungen der"
+        }
+      }
+    },
+    "home": {
+      "aboutMe": {
+        "greeting": "Hallo",
+        "myNameIs": "Mein Name ist...",
+        "whoAmI": {
+          "content": "Ich bin derzeit Schüler der 9. Klasse an der Kophotuayngamwittaya School. Ich plane, meine Studien in den Klassen 10 bis 12 an derselben Schule fortzusetzen, mit Schwerpunkt auf dem Programm Science-Mathematics. Ich habe eine Leidenschaft für die Front-End-Entwicklung und genieße es, benutzerfreundliche Weboberflächen zu erstellen. Außerdem habe ich Pläne, Spiele zu entwickeln, Schriftarten zu gestalten und generell jede Art von digitaler Kunst zu schaffen!",
+          "title": "Wer bin Ich?"
+        }
+      },
+      "contact": {
+        "getInTouch": {
+          "title": "Kontakt",
+          "content": "Ich freue mich darauf, von dir zu hören! Egal, ob du eine Frage hast, ein Projekt im Kopf oder einfach nur in Kontakt treten möchtest – zögere nicht, dich zu melden. Lass uns ins Gespräch kommen und herausfinden, wie wir zusammenarbeiten können."
+        }
+      },
+      "technology": {
+        "title": "Technologie",
+        "content": {
+          "1": {
+            "title": "Programmiersprachen"
+          },
+          "2": {
+            "title": "Software und Dienste"
+          },
+          "3": {
+            "title": "Frameworks"
+          }
+        }
+      }
+    }
+  },
+  "ui": {
+    "action": {
+      "new": "Neu",
+      "readMore": "Mehr erfahren",
+      "goBack": "Go back",
+      "goForward": "Go forward",
+      "refresh": "Refresh",
+      "go": "Go",
+      "goTo": "Go to",
+      "close": "Close"
+    },
+    "navigate": {
+      "blog": "Blog",
+      "contact": "Kontakt",
+      "copyrightNotice": "Urheberrechtshinweis",
+      "home": "Startseite",
+      "tools": "Werkzeuge",
+      "projects": "Projekte"
+    },
+    "error": {
+      "try": "Versuch mal diese Schaltflächen, um zu sehen, ob es das Problem behebt.",
+      "back": "Zurück zur Startseite",
+      "ohNo": "Oh nein",
+      "tag": "Ups! Etwas ist schiefgegangen. Bitte versuche es später noch einmal."
+    },
+    "footer": {
+      "respectiveOwner": "Alle Logos oder Marken, die auf dieser Website verwendet werden, sind Eigentum ihrer jeweiligen Inhaber.",
+      "sourceCode": "Quellcode",
+      "category": {
+        "legal": "Rechtliches",
+        "siteMap": "Seitenübersicht",
+        "social": "Soziale",
+        "bookmark": "Lesezeichen"
+      }
+    },
+    "system": {
+      "loading": "Lädt"
+    },
+    "tooltips": {
+      "navigationBar": {
+        "goBackHome": "Zurück zur Startseite.",
+        "langSwitcher": "Wechseln zwischen Englisch, Thai oder Deutsch",
+        "themeSwitcher": "สลับระหว่างธีมระบบ ธีมสว่าง และ ธีมมืด"
+      }
+    }
+  }
+}
