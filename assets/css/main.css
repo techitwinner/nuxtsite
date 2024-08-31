@@ -1,4 +1,5 @@
 @import "animations.css";
+@import "custom.css";
 
 @tailwind base;
 @tailwind components;
@@ -6,45 +7,61 @@
 
 body {
     @apply antialiased;
-    font-family: 'Bricolage Grotesque', 'Noto Sans Thai', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, Noto Sans, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
+    font-family: 'Inter', 'Noto Sans Thai', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, Noto Sans, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
     font-size: 20px;
     font-optical-sizing: auto;
     font-style: normal;
+    font-feature-settings: 'liga' 1, 'calt' 1, 'case' 1, 'ss01' 1, 'ss02' 1, 'ss03' 1;
     font-variation-settings: "wdth" 100;
+
     --nuxt-color-primary: 74,222,128;
+}
+@supports (font-variation-settings: normal) {
+    :root { font-family: InterVariable, sans-serif; }
+}
+
+.b-link {
+    @apply border-b border-dashed hover:border-solid border-black dark:border-white;
+}
+.b-div {
+    @apply border-black dark:border-white border-opacity-10 dark:border-opacity-10;
 }
 
 .bg-aurora {
     background-image: image('https://files.techit.win/images/background/AuroraScratch@2x.png');
-
 }
 
-h0 {
-    @apply text-[3.5rem] font-bold mt-4 mb-2
-}
+#container {
+    h0 {
+        @apply text-[3.5rem] font-bold mt-4 mb-2
+    }
 
-h1 {
-    @apply text-5xl font-bold mt-4 mb-2;
-}
+    h1 {
+        @apply text-5xl font-bold mt-4 mb-2;
+    }
 
-h2 {
-    @apply text-4xl font-semibold mt-4 mb-2;
-}
+    h2 {
+        @apply text-4xl font-semibold mt-4 mb-2;
+    }
 
-h3 {
-    @apply text-3xl font-semibold mt-4 mb-2;
-}
+    h3 {
+        @apply text-3xl font-semibold mt-4 mb-2;
+    }
 
-h4 {
-    @apply text-2xl font-medium mt-4 mb-2;
-}
+    h4 {
+        @apply text-2xl font-medium mt-4 mb-2;
+    }
 
-h5 {
-    @apply text-xl font-medium mt-4 mb-2;
-}
+    h5 {
+        @apply text-xl font-medium mt-4 mb-2;
+    }
 
-h6 {
-    @apply text-base font-medium mt-4 mb-2;
+    h6 {
+        @apply text-base font-medium mt-4 mb-2;
+    }
+    h0,h1,h2,h3,h4,h5,h6 + .no-margin {
+        @apply tracking-tight m-0;
+    }
 }
 
 .wdth-150 {
