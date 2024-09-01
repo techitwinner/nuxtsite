@@ -9,17 +9,20 @@
 
 <style>
 .page-enter-active {
-  transition: all 0.3s;
+  transition: all 0.5s cubic-bezier(var(--easeOut));
 }
 .page-leave-active {
-  transition: all 0.1s;
+  transition: all 0.3s cubic-bezier(var(--easeIn));
 }
 .page-enter-from {
   opacity: 0;
+  filter: blur(16px);
   transform: translateY(16px);
 }
 .page-leave-to {
   opacity: 0;
+  filter: blur(16px);
+  transform: translateY(-16px);
 }
 
 .layout-enter-active,
