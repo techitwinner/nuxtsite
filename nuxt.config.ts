@@ -5,7 +5,7 @@ const strapiBaseUri = process.env.STRAPI_URL || "https://api.techit.win";
 export default defineNuxtConfig({
   css: ['./assets/css/main.css', './assets/css/font-faces.css'],
   compatibilityDate: '2024-04-03',
-  modules: ['@nuxt/ui', '@nuxtjs/tailwindcss', '@nuxtjs/i18n', 'nuxt-anchorscroll', 'nuxt-aos', '@nuxtjs/strapi', '@formkit/auto-animate'],
+  modules: ['@nuxt/ui', '@nuxtjs/tailwindcss', '@nuxtjs/i18n', 'nuxt-anchorscroll', 'nuxt-aos', '@nuxtjs/strapi', '@formkit/auto-animate', '@nuxt/image'],
   devtools: { enabled: true },
   runtimeConfig: {
     public: {
