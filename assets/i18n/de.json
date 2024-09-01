@@ -26,7 +26,14 @@
   },
   "pages": {
     "blog": {
-      "description": "Ein Ort für mich, an dem ich alles posten kann, was ich möchte. Ob es Updates aus meinem Leben, Rezensionen, kluge Gedanken oder einfach nur Alltagsgeschwätz sind – hier findet alles seinen Platz."
+      "description": "Ein Ort für mich, an dem ich alles posten kann, was ich möchte. Ob es Updates aus meinem Leben, Rezensionen, kluge Gedanken oder einfach nur Alltagsgeschwätz sind – hier findet alles seinen Platz.",
+      "allPosts": "Alle Beiträge",
+      "allTags": "Alle Tags",
+      "tags": {
+        "oneTag": {
+          "postsTaggedWith": "Beiträge mit {tag} markiert"
+        }
+      }
     },
     "copyrightNotice": {
       "notice": {
@@ -80,6 +87,7 @@
     },
     "navigate": {
       "blog": "Blog",
+      "tag": "Tag",
       "contact": "Kontakt",
       "copyrightNotice": "Urheberrechtshinweis",
       "home": "Startseite",
