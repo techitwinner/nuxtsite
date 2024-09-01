@@ -1,23 +1,28 @@
 <template>
   <div>
-    <div v-if="post" class="max-w-[1024px] mx-auto px-4 py-8 border-x b-div gap-2 flex flex-col">
-      <UBreadcrumb :links="breadcrumbSlug" />
-      <UDivider class="my-4"/>
-      <ClientOnly>
-        <h1 class="text-6xl font-bold mb-4">{{ post.attributes.title }}</h1>
-        <p class="opacity-50 mb-4">{{ post.attributes.summary }}</p>
-        <p>{{formattedDate}}</p>
-        <img v-if="coverImageUrl" :src="coverImageUrl" :alt="post.attributes.title" class="w-full aspect-[20/9] object-cover mb-6 rounded-lg shadow-md">
-        <UDivider/>
-        <div class="prose prose-slate dark:prose-invert prose-sm md:prose-base prose-h1:mb-5 prose-h2:my-4 prose-pre:text-sm prose-pre:m-0 prose-li:my-1 max-w-none" v-html="compiledContent"></div>
-      </ClientOnly>
-    </div>
-    <div v-else-if="error" class="max-w-4xl mx-auto px-4 py-8 text-red-500">
-      {{ error }}
-    </div>
-    <div v-else class="max-w-4xl mx-auto px-4 py-8">
-      Loading...
-    </div>
+    <ClientOnly>
+      <div v-if="post">
+        <div class="flex flex-col max-w-[1024px] mx-auto border-x b-div">
+          <img v-if="coverImageUrl" :src="coverImageUrl" :alt="post.attributes.title" class="w-full aspect-[18/9] object-cover">
+        </div>
+        <div class="flex flex-col gap-3 max-w-[1024px] mx-auto px-4 py-8 border-x border-b b-div">
+          <UBreadcrumb :links="breadcrumbSlug" />
+          <UDivider/>
+          <h1 class="text-5xl tracking-tighter font-bold">{{ post.attributes.title }}</h1>
+          <p class="opacity-50">{{ post.attributes.summary }}</p>
+          <section class="text-base items-center flex gap-1"><i class="text-[24px] ph ph-clock"></i>{{ formattedDate }}</section>
+        </div>
+        <div class="max-w-[1024px] mx-auto px-4 py-8 border-x b-div gap-2 flex flex-col">
+          <div class="prose prose-slate dark:prose-invert prose-sm md:prose-base prose-h1:mb-5 prose-h2:my-4 prose-pre:text-sm prose-pre:m-0 prose-li:my-1 max-w-none" v-html="compiledContent"></div>
+        </div>
+      </div>
+      <div v-else-if="error" class="max-w-4xl mx-auto px-4 py-8 text-red-500">
+        {{ error }}
+      </div>
+      <div v-else class="max-w-4xl mx-auto px-4 py-8">
+        Loading...
+      </div>
+    </ClientOnly>
   </div>
 
 </template>
@@ -80,7 +85,7 @@ let breadcrumbSlug = ref([]);
 watchEffect(() => {
   if (post.value) {
     breadcrumbSlug.value = [{
-      label: 'Home',
+      label: t('ui.navigate.home'),
       icon: 'ph:house',
       to: localePath('/')
     }, {
