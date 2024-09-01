@@ -20,16 +20,16 @@
     </section>
     <section id="container" class="overflow-hidden relative py-4">
       <div id="wrapper2" class="flex flex-col items-center gap-8 z-[1]">
-        <div class="flex flex-col w-full items-start">
+        <div class="flex flex-col w-full items-start gap-4">
           <h0 class="">{{$t('pages.home.aboutMe.whoAmI.title')}}</h0>
           <p>{{$t('pages.home.aboutMe.whoAmI.content')}}</p>
         </div>
       </div> <!-- ABOUT ME WRAPPER -->
       <div id="wrapper2" class="flex flex-col items-center gap-8 z-[1]">
-        <div class="flex flex-col w-full items-start">
+        <div class="flex flex-col w-full items-start gap-4">
           <h3 class="">{{$t('pages.home.technology.title')}}</h3>
           <section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
-            <div>
+            <div class="flex flex-col gap-2">
               <h4>{{$t('pages.home.technology.content.1.title')}}</h4>
               <section class="flex flex-wrap gap-2">
                 <UBadge class="gap-1" size="lg" v-for="item in technoLang" :key="item.key" color="gray">
@@ -39,7 +39,7 @@
                 </UBadge>
               </section>
             </div>
-            <div>
+            <div class="flex flex-col gap-2">
               <h4>{{$t('pages.home.technology.content.2.title')}}</h4>
               <section class="flex flex-wrap gap-2">
                 <UBadge class="gap-1" size="lg" v-for="item in technoSftwre" :key="item.key" color="gray">
@@ -49,7 +49,7 @@
                 </UBadge>
               </section>
             </div>
-            <div>
+            <div class="flex flex-col gap-2">
               <h4>{{$t('pages.home.technology.content.3.title')}}</h4>
               <section class="flex flex-wrap gap-2">
                 <UBadge class="gap-1" size="lg" v-for="item in technoFrmewrk" :key="item.key" color="gray">
