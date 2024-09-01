@@ -61,7 +61,7 @@
           <ULink v-for="item in navBarItems"
                  :to="item.to"
                  active-class="font-bold bg-black text-white dark:bg-white dark:text-black"
-                 class="flex text-[17px] gap-2 py-1 px-2 active:opacity-75 items-center uppercase rounded-md bg-none jetbrains"
+                 class="flex text-[17px] gap-2 py-1 px-2 active:opacity-75 transition-all items-center uppercase rounded-md bg-none jetbrains"
                  inactive-class="hover:bg-black hover:bg-opacity-10">
             <span>{{item.label}}</span>
           </ULink>
@@ -70,7 +70,7 @@
       <div class="flex flex-row gap-3 h-fit">
         <UButton square variant="solid" color="white" @click="toggleDrawer" class="flex sm:hidden" size="xl"><i class="ph ph-list text-[24px]"></i></UButton>
         <LanguageSwitcher class="hidden sm:block" :display-locale-value="false"/>
-        <ThemeSwitcher class="block sm:block"/>
+        <ThemeSwitcher class="hidden sm:block"/>
       </div>
     </div>
   </nav>
