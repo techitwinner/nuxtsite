@@ -1,5 +1,6 @@
+// ~/composables/useBlogPosts.ts
 export const useBlogPosts = () => {
-    const { find, findOne } = useStrapi()
+    const { find, findOne, findAll } = useStrapi()
 
     const fetchAllPosts = async () => {
         const response = await find('nuxtsite-blog-posts', {
@@ -16,14 +17,42 @@ export const useBlogPosts = () => {
             })
             return response.data[0]
         } catch (error) {
-            console.error('Error fetching blog post:', error)
             throw error
+        }
+    }
 
+    const fetchPostsByTag = async (tag: string) => {
+        try {
+            const response = await find('nuxtsite-blog-posts', {
+                filters: { tag: { $eq: tag} },
+                populate: 'deep,3'
+            })
+            return response.data
+        } catch (error) {
+            throw error
+        }
+    }
+
+    const fetchTags = async () => {
+        try {
+            const response = await find('nuxtsite-blog-posts', {
+                fields: ['tag'], // Adjust this to match the tag field name
+                populate: false // Don't populate other relations
+            })
+            // Extract unique tags
+            const tags = response.data.map(post => post.attributes.tag)
+            const uniqueTags = [...new Set(tags)]
+            return uniqueTags
+        } catch (error) {
+            console.error('Error fetching tags:', error)
+            throw error
         }
     }
 
     return {
         fetchAllPosts,
-        fetchPostBySlug
+        fetchPostBySlug,
+        fetchPostsByTag,
+        fetchTags
     }
 }
