@@ -36,7 +36,14 @@
 	},
 	"pages": {
 		"blog": {
-			"description": "A place for me to posts whatever I wanted to. Such as updating my life, reviewing stuff, posting something smart or just yap about my life. All will be here."
+			"description": "A place for me to posts whatever I wanted to. Such as updating my life, reviewing stuff, posting something smart or just yap about my life. All will be here.",
+			"allPosts": "All Posts",
+			"allTags": "All Tags",
+			"tags": {
+				"oneTag": {
+					"postsTaggedWith": "All posts tagged with"
+				}
+			}
 		},
 		"copyrightNotice": {
 			"notice": {
@@ -90,6 +97,7 @@
 		},
 		"navigate": {
 			"blog": "Blog",
+			"Tag": "Tag",
 			"contact": "Contact",
 			"copyrightNotice": "Copyright Notice",
 			"home": "Home",
