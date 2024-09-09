@@ -1,9 +1,9 @@
 <template>
   <div class="w-full">
     <section v-if="tags.length" class="flex flex-col w-full gap-4">
-      <h3>{{ $t('pages.blog.allTags') }}</h3>
+      <p class="text-4xl font-bold font-source-serif">{{ $t('pages.blog.allTags') }}</p>
       <section class="flex flex-wrap gap-2">
-        <UButton :to="localePath(`/blog/tag/${tag}`)" color="black" v-for="tag in tags" :label="tag" :key="tag"/>
+        <nuxt-link :href="localePath(`/blog/tag/${tag}`)" class="badge badge-padding badge-primary" v-for="tag in tags" :key="tag">{{tag}}</nuxt-link>
       </section>
     </section>
     <section v-else>

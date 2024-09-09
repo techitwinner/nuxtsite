@@ -1,11 +1,13 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
-
+import Aura from '@primevue/themes/aura';
+import Nora from '@primevue/themes/nora';
+require("dotenv").config();
 const strapiBaseUri = process.env.STRAPI_URL || "https://api.techit.win";
 
 export default defineNuxtConfig({
-  css: ['./assets/css/main.css', './assets/css/font-faces.css'],
+  css: ['./assets/css/main.css'],
   compatibilityDate: '2024-04-03',
-  modules: ['@nuxt/ui', '@nuxtjs/tailwindcss', '@nuxtjs/i18n', 'nuxt-anchorscroll', 'nuxt-aos', '@nuxtjs/strapi', '@formkit/auto-animate', '@nuxt/image'],
+  modules: ['@nuxtjs/tailwindcss', '@nuxtjs/i18n', 'nuxt-anchorscroll', 'nuxt-aos', '@nuxtjs/strapi', '@formkit/auto-animate', '@nuxt/image', '@nuxt/icon', '@nuxtjs/color-mode', 'shadcn-nuxt'],
   devtools: { enabled: true },
   runtimeConfig: {
     public: {
@@ -15,7 +17,6 @@ export default defineNuxtConfig({
   i18n: {
     locales: [
       { code: 'en', iso: 'en-US', file: 'en.json' },
-      { code: 'de', iso: 'de-DE', file: 'de.json' },
       { code: 'th', iso: 'th-TH', file: 'th.json' }
     ],
     defaultLocale: 'en',
@@ -27,12 +28,37 @@ export default defineNuxtConfig({
       redirectOn: 'root',
     },
   },
+  auth: {
+    strategies: {
+      local: {
+        endpoints: {
+          login: {
+            url: 'auth/local',
+            method: 'post',
+            propertyName: 'jwt'
+          },
+          user: {
+            url: 'users/me',
+            method: 'get',
+            propertyName: false
+          },
+          logout: false
+        }
+      }
+    }
+  },
   strapi: {
     url: strapiBaseUri,
     prefix: '/api',
     version: 'v4',
     entities: ['nuxtsite-blog-posts'],
     cookieName: 'strapi_jwt',
+    cookie: {
+      path: '/',
+      maxAge: 14 * 24 * 60 * 60,
+      secure: process.env.NODE_ENV === 'production',
+      sameSite: true
+    }
   },
   app: {
     pageTransition: { name: 'page', mode: 'out-in' },

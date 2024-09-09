@@ -1,13 +1,12 @@
 <template>
-  <div>
-    <section id="container" class="overflow-hidden relative justify-center py-20">
-      <div id="wrapper" class="flex flex-col items-center gap-8 z-[1]">
-        <PageHeading :title="t('ui.navigate.blog')" :subTitle="t('pages.blog.description')" justify="center"/>
+  <div class="ct">
+    <section class="page-main">
+      <div class="main-child">
+        <PageHeading :title="t('ui.navigate.blog')" :subTitle="t('pages.blog.description')"/>
       </div>
-      <img alt="" class="absolute fade-in object-cover h-full opacity-50" src="/__content__/bg/AuroraScratch.png"/>
     </section>
-    <section id="container">
-      <div id="wrapper" class="flex flex-col gap-8">
+    <section class="page-main">
+      <div class="blog-card-child">
         <TagBadges/>
         <ArticlesCardTray/>
       </div>

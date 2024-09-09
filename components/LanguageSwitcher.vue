@@ -8,10 +8,13 @@
     displayLocaleValue: {
       type: Boolean,
       default: true
+    },
+    class: {
+      type: String,
     }
   });
 
-  import { computed } from 'vue'
+  import { computed, inject } from 'vue'
   import { useI18n } from 'vue-i18n'
   import { useSwitchLocalePath } from '#i18n'
   import { useRouter } from 'vue-router'
@@ -20,10 +23,6 @@
   const switchLocalePath = useSwitchLocalePath()
   const router = useRouter()
 
-  const toggleLanguage = () => {
-    const newLocale = locale.value === 'en' ? 'th' : 'en'
-    router.push(switchLocalePath(newLocale))
-  }
   const setLocale = (newLocale) => {
     locale.value = newLocale;
     router.push(switchLocalePath(newLocale))
@@ -31,21 +30,18 @@
 
   const buttonText = computed(() => locale.value === 'en' ? 'TH' : 'EN')
   const localeList = [
-    [
-      {label: 'English (English)', click: () => {setLocale('en')} },
-      {label: 'German (Deutsch)', click: () => {setLocale('de')} },
-      {label: 'Thai (ภาษาไทย)', click: () => {setLocale('th')} }
-    ]
+    {key: 1, label: 'English (English)', labelCode: 'en', click: () => {setLocale('en')} },
+    {key: 2, label: 'Thai (ภาษาไทย)', labelCode: 'th', click: () => {setLocale('th')} }
   ];
+
+  const closeNavDrawer = inject<() => void>('closeNavDrawer')
 </script>
 
 <template>
-<!--  <UTooltip :text="t('ui.tooltips.navigationBar.langSwitcher')">-->
-<!--    <UButton :square="square ? 'true' : 'false'" variant="solid" color="white" size="xl" class="" @click="toggleLanguage">-->
-<!--      <i class="ph ph-globe text-[24px]"></i><span v-if="displayLocaleValue">{{ buttonText }}</span>-->
-<!--    </UButton>-->
-<!--  </UTooltip>-->
-  <UDropdown :items="localeList" :popper="{ placement: 'bottom-end' }">
-    <UButton square color="white" label="Locale" :color="locale.value === 'en' ? 'black' : 'white'" size="xl"><i class="text-[24px] ph ph-globe"></i></UButton>
-  </UDropdown>
+  <div class="dropdown dropdown-end">
+    <div tabindex="0" role="button" class="btn btn-ghost btn-circle"><icon name="ph:globe" class="swap-off fill-current h-6 w-6"/></div>
+    <ul tabindex="0" class="dropdown-content menu bg-base-100 rounded-box z-[1] w-52 p-2 shadow">
+      <li v-for="item in localeList" :key="item.key" :class="locale.value === item.labelCode ? 'bg-primary' : ''" @click="item.click"><a>{{item.label}}</a></li>
+    </ul>
+  </div>
 </template>

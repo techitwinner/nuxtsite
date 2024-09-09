@@ -1,0 +1,333 @@
+:root {
+    /* MAIN COLOR */
+    --ui-color-primary: #000000;
+    --ui-color-primary-rgb: 0, 0, 0;
+    --ui-color-primary-content: #FFFFFF;
+    --ui-color-primary-content-rgb: 255, 255, 255;
+    --ui-color-secondary: #232323;
+    --ui-color-secondary-rgb: 35, 35, 35;
+    --ui-color-secondary-content: #ebebeb;
+    --ui-color-secondary-content-rgb: 235, 235, 235;
+    --ui-color-accent: #0055FF;
+    --ui-color-accent-rgb: 0, 85, 255;
+    --ui-color-accent-content: #D5E4FF;
+    --ui-color-accent-content-rgb: 213, 228, 255;
+    --ui-color-base-50: #ffffff;
+    --ui-color-base-50-rgb: 255, 255, 255;
+    --ui-color-base-100: #e6ebed;
+    --ui-color-base-100-rgb: 230, 235, 237;
+    --ui-color-base-150: #dce0e6;
+    --ui-color-base-150-rgb: 220, 224, 230;
+    --ui-color-base-200: #d4dae1;
+    --ui-color-base-200-rgb: 212, 218, 225;
+    --ui-color-base-250: #c3c7d5;
+    --ui-color-base-250-rgb: 195, 199, 213;
+    --ui-color-base-300: #a9b2bf;
+    --ui-color-base-300-rgb: 169, 178, 191;
+    --ui-color-base-content: #000c20;
+    --ui-color-base-content-rgb: 0, 12, 32;
+    --ui-color-info: #0096ff;
+    --ui-color-info-rgb: 0, 150, 255;
+    --ui-color-info-content: #f0f5ff;
+    --ui-color-info-content-rgb: 240, 245, 255;
+    --ui-color-success: #6dd187;
+    --ui-color-success-rgb: 109, 209, 135;
+    --ui-color-success-content: #032e11;
+    --ui-color-success-content-rgb: 3, 46, 17;
+    --ui-color-warning: #ff8000;
+    --ui-color-warning-rgb: 255, 128, 0;
+    --ui-color-warning-content: #fbebdf;
+    --ui-color-warning-content-rgb: 251, 235, 223;
+    --ui-color-danger: #ff6f6f;
+    --ui-color-danger-rgb: 255, 111, 111;
+    --ui-color-danger-content: #fff2f2;
+    --ui-color-danger-content-rgb: 255, 242, 242;
+    /* MAIN COLOR DARK */
+    @media (prefers-color-scheme: dark) {
+        --ui-color-primary: #ffffff;
+        --ui-color-primary-rgb: 255, 255, 255;
+        --ui-color-primary-content: #000000;
+        --ui-color-primary-content-rgb: 0, 0, 0;
+        --ui-color-secondary: #d8d8d8;
+        --ui-color-secondary-rgb: 216, 216, 216;
+        --ui-color-secondary-content: #131313;
+        --ui-color-secondary-content-rgb: 19, 19, 19;
+        --ui-color-accent: #0055FF;
+        --ui-color-accent-rgb: 0, 85, 255;
+        --ui-color-accent-content: #D5E4FF;
+        --ui-color-accent-content-rgb: 213, 228, 255;
+        --ui-color-base-50: #0d2233;
+        --ui-color-base-50-rgb: 13, 34, 51;
+        --ui-color-base-100: #0a1c2f;
+        --ui-color-base-100-rgb: 10, 28, 47;
+        --ui-color-base-150: #091a2a;
+        --ui-color-base-150-rgb: 9, 26, 42;
+        --ui-color-base-200: #051522;
+        --ui-color-base-200-rgb: 5, 21, 34;
+        --ui-color-base-250: #030e1c;
+        --ui-color-base-250-rgb: 3, 14, 28;
+        --ui-color-base-300: #020a14;
+        --ui-color-base-300-rgb: 2, 10, 20;
+        --ui-color-base-content: #e9f0ff;
+        --ui-color-base-content-rgb: 233, 240, 255;
+    }
+    /* DASHED BORDER */
+    --btn-border-width: 1px; /* Default border width */
+    --btn-border-style: solid; /* Default border style */
+    --btn-border-color: transparent; /* Default border color */
+}
+
+/*** BODY STYLING ***/
+body {
+    @apply bg-[var(--ui-color-base-50)] text-[var(--ui-color-base-content)];
+}
+@media (prefers-color-scheme: dark) {
+    body {
+        @apply bg-[var(--ui-color-base-350)] text-[var(--ui-color-base-content)];
+    }
+}
+
+/*** BUTTONS ***/
+/* COLORS */
+/* BASE */
+.btn {
+    @apply rounded-md select-none cursor-pointer flex flex-row w-fit gap-2 px-4 py-3 h-full max-h-12 font-medium bg-[var(--ui-color-base-100)] shadow-sm text-[var(--ui-color-base-content)] hover:opacity-75 active:scale-[0.95] transition-all duration-150 border-[var(--ui-color-base-100)];
+    border: var(--btn-border-width) var(--btn-border-style) var(--btn-border-color, transparent);
+
+}
+.btn:not(:only-child) {
+    @apply rounded-md select-none cursor-pointer flex flex-row w-fit gap-2 px-4 py-3 h-full max-h-12 font-medium hover:opacity-75 active:scale-[0.95] transition-all duration-150 border-[var(--ui-color-base-100)];
+    border: var(--btn-border-width) var(--btn-border-style) var(--btn-border-color, transparent);
+    background-color: var(--btn-background-color);
+}
+
+/* DASHED BORDER */
+.btn:not(:only-child) + .btn-dashed {
+    @apply border-dashed border transition-transform duration-150;
+    color: var(--btn-border-color);
+    background: none;
+}
+.btn:not(:only-child) + .btn-dashed:hover {
+    @apply opacity-100;
+    color: var(--btn-text-color);
+    background-color: var(--btn-background-color);
+}
+.btn.btn-dashed {
+    @apply border-dashed border transition-transform duration-150;
+    --btn-border-color: var(--ui-color-base-100);
+    --btn-background-color: none;
+    --btn-text-color: var(--ui-color-base-content);
+}
+.btn.btn-dashed:hover {
+    --btn-border-color: var(--ui-color-base-100);
+    --btn-background-color: var(--ui-color-base-100);
+    --btn-text-color: var(--ui-color-base-content);
+}
+/** STYLES **/
+/* GHOST */
+.btn:not(:only-child) + .btn-ghost {
+    @apply bg-[var(--btn-background-color)];
+}
+
+/* COLOR VARIANTS */
+.btn-accent {
+    @apply bg-[var(--ui-color-accent)] text-[var(--ui-color-accent-content)] border-none;
+    --btn-border-color: var(--ui-color-accent)!important;
+    --btn-background-color: var(--ui-color-accent)!important;
+    --btn-text-color: var(--ui-color-accent-content)!important;
+}
+.btn-primary {
+    @apply bg-[var(--ui-color-primary)] text-[var(--ui-color-primary-content)];
+    --btn-border-color: var(--ui-color-primary)!important;
+    --btn-background-color: var(--ui-color-primary)!important;
+    --btn-text-color: var(--ui-color-primary-content)!important;
+}
+.btn-secondary {
+    @apply bg-[var(--ui-color-secondary)] text-[var(--ui-color-secondary-content)];
+    --btn-border-color: var(--ui-color-secondary)!important;
+    --btn-background-color: var(--ui-color-secondary)!important;
+    --btn-text-color: var(--ui-color-secondary-content)!important;
+}
+.btn-info {
+    @apply bg-[var(--ui-color-info)] text-[var(--ui-color-accent-info)] border-[var(--ui-color-info)];
+    --btn-border-color: var(--ui-color-info)!important;
+    --btn-background-color: var(--ui-color-info)!important;
+    --btn-text-color: var(--ui-color-info-content)!important;
+}
+.btn-success {
+    @apply bg-[var(--ui-color-success)] text-[var(--ui-color-success-content)] border-[var(--ui-color-success)];
+    --btn-border-color: var(--ui-color-success)!important;
+    --btn-background-color: var(--ui-color-success)!important;
+    --btn-text-color: var(--ui-color-success-content)!important;
+}
+.btn-warning {
+    @apply bg-[var(--ui-color-warning)] text-[var(--ui-color-warning-content)] border-[var(--ui-color-warning)];
+    --btn-border-color: var(--ui-color-warning)!important;
+    --btn-background-color: var(--ui-color-warning)!important;
+    --btn-text-color: var(--ui-color-warning-content)!important;
+}
+.btn-danger {
+    @apply bg-[var(--ui-color-danger)] text-[var(--ui-color-danger-content)] border-[var(--ui-color-danger)];
+    --btn-border-color: var(--ui-color-danger)!important;
+    --btn-background-color: var(--ui-color-danger)!important;
+    --btn-text-color: var(--ui-color-danger-content)!important;
+}
+/* SQUARE */
+.btn.btn-square {
+    @apply p-3;
+}
+/* ROUNDED FULL */
+.btn.btn-rounded-full {
+    @apply rounded-full;
+}
+
+/*:root {*/
+/*    !* MAIN COLOR *!*/
+/*    --ui-color-primary-rgb: 0, 0, 0;*/
+/*    --ui-color-primary-content-rgb: 255, 255, 255;*/
+/*    --ui-color-secondary-rgb: 35, 35, 35;*/
+/*    --ui-color-secondary-content-rgb: 235, 235, 235;*/
+/*    --ui-color-accent-rgb: 0, 85, 255;*/
+/*    --ui-color-accent-content-rgb: 213, 228, 255;*/
+/*    --ui-color-base-50-rgb: 255, 255, 255;*/
+/*    --ui-color-base-100-rgb: 230, 235, 237;*/
+/*    --ui-color-base-150-rgb: 220, 224, 230;*/
+/*    --ui-color-base-200-rgb: 212, 218, 225;*/
+/*    --ui-color-base-250-rgb: 195, 199, 213;*/
+/*    --ui-color-base-300-rgb: 169, 178, 191;*/
+/*    --ui-color-base-content-rgb: 0, 12, 32;*/
+/*    --ui-color-info-rgb: 0, 150, 255;*/
+/*    --ui-color-info-content-rgb: 240, 245, 255;*/
+/*    --ui-color-success-rgb: 109, 209, 135;*/
+/*    --ui-color-success-content-rgb: 3, 46, 17;*/
+/*    --ui-color-warning-rgb: 255, 128, 0;*/
+/*    --ui-color-warning-content-rgb: 251, 235, 223;*/
+/*    --ui-color-danger-rgb: 255, 111, 111;*/
+/*    --ui-color-danger-content-rgb: 255, 242, 242;*/
+
+/*    !* MAIN COLOR DARK *!*/
+/*    @media (prefers-color-scheme: dark) {*/
+/*        --ui-color-primary-rgb: 255, 255, 255;*/
+/*        --ui-color-primary-content-rgb: 0, 0, 0;*/
+/*        --ui-color-secondary-rgb: 216, 216, 216;*/
+/*        --ui-color-secondary-content-rgb: 19, 19, 19;*/
+/*        --ui-color-accent-rgb: 0, 85, 255;*/
+/*        --ui-color-accent-content-rgb: 213, 228, 255;*/
+/*        --ui-color-base-50-rgb: 13, 34, 51;*/
+/*        --ui-color-base-100-rgb: 10, 28, 47;*/
+/*        --ui-color-base-150-rgb: 9, 26, 42;*/
+/*        --ui-color-base-200-rgb: 5, 21, 34;*/
+/*        --ui-color-base-250-rgb: 3, 14, 28;*/
+/*        --ui-color-base-300-rgb: 2, 10, 20;*/
+/*        --ui-color-base-content-rgb: 233, 240, 255;*/
+/*    }*/
+
+/*    !* DASHED BORDER *!*/
+/*    --btn-border-width: 1px; !* Default border width *!*/
+/*    --btn-border-style: solid; !* Default border style *!*/
+/*    --btn-border-color: transparent; !* Default border color *!*/
+/*}*/
+
+/*!*** BODY STYLING ***!*/
+/*body {*/
+/*    @apply bg-[rgb(var(--ui-color-base-50-rgb))] text-[rgb(var(--ui-color-base-content-rgb))];*/
+/*}*/
+/*@media (prefers-color-scheme: dark) {*/
+/*    body {*/
+/*        @apply bg-[rgb(var(--ui-color-base-300-rgb))] text-[rgb(var(--ui-color-base-content-rgb))];*/
+/*    }*/
+/*}*/
+
+/*!*** BUTTONS ***!*/
+/*!* COLORS *!*/
+/*!* BASE *!*/
+/*.btn {*/
+/*    @apply rounded-md select-none cursor-pointer flex flex-row w-fit gap-2 px-4 py-3 h-full max-h-12 font-medium bg-[rgb(var(--ui-color-base-100-rgb))] shadow-sm text-[rgb(var(--ui-color-base-content-rgb))] hover:opacity-75 active:scale-[0.95] transition-all duration-150 border-[rgb(var(--ui-color-base-100-rgb))];*/
+/*    border: var(--btn-border-width) var(--btn-border-style) var(--btn-border-color, transparent);*/
+/*}*/
+/*.btn:not(:only-child) {*/
+/*    @apply rounded-md select-none cursor-pointer flex flex-row w-fit gap-2 px-4 py-3 h-full max-h-12 font-medium hover:opacity-75 active:scale-[0.95] transition-all duration-150 border-[rgb(var(--ui-color-base-100-rgb))];*/
+/*    border: var(--btn-border-width) var(--btn-border-style) var(--btn-border-color, transparent);*/
+/*    background-color: var(--btn-background-color);*/
+/*}*/
+
+/*!* DASHED BORDER *!*/
+/*.btn:not(:only-child) + .btn-dashed {*/
+/*    @apply border-dashed border transition-transform duration-150;*/
+/*    color: var(--btn-border-color);*/
+/*    background: none;*/
+/*}*/
+/*.btn:not(:only-child) + .btn-dashed:hover {*/
+/*    @apply opacity-100;*/
+/*    color: var(--btn-text-color);*/
+/*    background-color: var(--btn-background-color);*/
+/*}*/
+/*.btn.btn-dashed {*/
+/*    @apply border-dashed border transition-transform duration-150;*/
+/*    --btn-border-color: rgb(var(--ui-color-base-100-rgb));*/
+/*    --btn-background-color: none;*/
+/*    --btn-text-color: rgb(var(--ui-color-base-content-rgb));*/
+/*}*/
+/*.btn.btn-dashed:hover {*/
+/*    --btn-border-color: rgb(var(--ui-color-base-100-rgb));*/
+/*    --btn-background-color: rgb(var(--ui-color-base-100-rgb));*/
+/*    --btn-text-color: rgb(var(--ui-color-base-content-rgb));*/
+/*}*/
+/*!** STYLES **!*/
+/*!* GHOST *!*/
+/*.btn:not(:only-child) + .btn-ghost {*/
+/*    @apply border-none;*/
+/*    background-color: rgba(var(--btn-background-color),1);*/
+/*}*/
+
+/*!* COLOR VARIANTS *!*/
+/*.btn-accent {*/
+/*    @apply bg-[rgb(var(--ui-color-accent-rgb))] text-[rgb(var(--ui-color-accent-content-rgb))] border-none;*/
+/*    --btn-border-color: rgb(var(--ui-color-accent-rgb))!important;*/
+/*    --btn-background-color: rgb(var(--ui-color-accent-rgb))!important;*/
+/*    --btn-text-color: rgb(var(--ui-color-accent-content-rgb))!important;*/
+/*}*/
+/*.btn-primary {*/
+/*    @apply bg-[rgb(var(--ui-color-primary-rgb))] text-[rgb(var(--ui-color-primary-content-rgb))];*/
+/*    --btn-border-color: rgb(var(--ui-color-primary-rgb))!important;*/
+/*    --btn-background-color: rgb(var(--ui-color-primary-rgb))!important;*/
+/*    --btn-text-color: rgb(var(--ui-color-primary-content-rgb))!important;*/
+/*}*/
+/*.btn-secondary {*/
+/*    @apply bg-[rgb(var(--ui-color-secondary-rgb))] text-[rgb(var(--ui-color-secondary-content-rgb))];*/
+/*    --btn-border-color: rgb(var(--ui-color-secondary-rgb))!important;*/
+/*    --btn-background-color: rgb(var(--ui-color-secondary-rgb))!important;*/
+/*    --btn-text-color: rgb(var(--ui-color-secondary-content-rgb))!important;*/
+/*}*/
+/*.btn-info {*/
+/*    @apply bg-[rgb(var(--ui-color-info-rgb))] text-[rgb(var(--ui-color-info-content-rgb))] border-[rgb(var(--ui-color-info-rgb))];*/
+/*    --btn-border-color: rgb(var(--ui-color-info-rgb))!important;*/
+/*    --btn-background-color: rgb(var(--ui-color-info-rgb))!important;*/
+/*    --btn-text-color: rgb(var(--ui-color-info-content-rgb))!important;*/
+/*}*/
+/*.btn-success {*/
+/*    @apply bg-[rgb(var(--ui-color-success-rgb))] text-[rgb(var(--ui-color-success-content-rgb))] border-[rgb(var(--ui-color-success-rgb))];*/
+/*    --btn-border-color: rgb(var(--ui-color-success-rgb))!important;*/
+/*    --btn-background-color: rgb(var(--ui-color-success-rgb))!important;*/
+/*    --btn-text-color: rgb(var(--ui-color-success-content-rgb))!important;*/
+/*}*/
+/*.btn-warning {*/
+/*    @apply bg-[rgb(var(--ui-color-warning-rgb))] text-[rgb(var(--ui-color-warning-content-rgb))] border-[rgb(var(--ui-color-warning-rgb))];*/
+/*    --btn-border-color: rgb(var(--ui-color-warning-rgb))!important;*/
+/*    --btn-background-color: rgb(var(--ui-color-warning-rgb))!important;*/
+/*    --btn-text-color: rgb(var(--ui-color-warning-content-rgb))!important;*/
+/*}*/
+/*.btn-danger {*/
+/*    @apply bg-[rgb(var(--ui-color-danger-rgb))] text-[rgb(var(--ui-color-danger-content-rgb))] border-[rgb(var(--ui-color-danger-rgb))];*/
+/*    --btn-border-color: rgb(var(--ui-color-danger-rgb))!important;*/
+/*    --btn-background-color: rgb(var(--ui-color-danger-rgb))!important;*/
+/*    --btn-text-color: rgb(var(--ui-color-danger-content-rgb))!important;*/
+/*}*/
+/*!* SQUARE *!*/
+/*.btn.btn-square {*/
+/*    @apply p-3;*/
+/*}*/
+/*!* ROUNDED FULL *!*/
+/*.btn.btn-rounded-full {*/
+/*    @apply rounded-full;*/
+/*}*/

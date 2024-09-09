@@ -41,35 +41,31 @@
 			"allTags": "All Tags",
 			"tags": {
 				"oneTag": {
-					"postsTaggedWith": "All posts tagged with"
-				}
-			}
-		},
-		"copyrightNotice": {
-			"notice": {
-				"1": {
-					"1": "The code for this website is released under the ",
-					"2": "You are free to use, modify, and distribute the code in accordance with the terms of the"
+					"postsTaggedWith": "All posts tagged with {tag}"
 				}
 			}
 		},
 		"home": {
 			"aboutMe": {
-				"greeting": "Hello",
-				"myNameIs": "My name is...",
+				"1": "That's my name.",
 				"whoAmI": {
-					"content": "I'm currently a Grade 9 student at Kophotuayngamwittaya School. I plan to continue my studies in Grades 10-12 at the same school, focusing on the Science-Mathematics program. I have a passion for front-end development and enjoy creating user-friendly web interfaces. I also have plans to make games, font, literally every digital art!",
+					"content": "\nI'm a Grade 9 student at Kophotuayngamwittaya School, planning to stay for the Science-Math program. I love development, making web interfaces, and exploring graphic design, making games, fonts, and more.",
 					"title": "Who am I?"
 				}
 			},
 			"contact": {
-				"getInTouch": {
-					"title": "Get in Touch",
-					"content": "I’d love to hear from you! Whether you have a question, a project in mind, or just want to connect, feel free to reach out. Let’s start a conversation and explore how we can work together."
-				}
+				"title": "Contact Me",
+				"description": "I’d love to hear from you! Whether you have a question, a project in mind, or just want to connect, feel free to reach out. Let’s start a conversation and explore how we can work together."
+
+			},
+			"blog": {
+				"title": "Latest Posts",
+				"description": "Check out my latest blog posts. This is where I post random stuff, tips and tricks, life update, pets and much more!",
+				"allPosts": "All Posts"
 			},
 			"technology": {
 				"title": "Technology",
+				"description": "A collection of my skills and experiences across various technologies, curated as I continue to learn and expand my knowledge. :D",
 				"content": {
 					"1": {
 						"title": "Languages"
@@ -93,7 +89,8 @@
 			"refresh": "Refresh",
 			"go": "Go",
 			"goTo": "Go to",
-			"close": "Close"
+			"close": "Close",
+			"random": "Random"
 		},
 		"navigate": {
 			"blog": "Blog",
@@ -118,7 +115,13 @@
 				"siteMap": "Site Map",
 				"social": "Social",
 				"bookmark": "Bookmark"
-			}
+			},
+			"copyright": "© 2023 - {year} {name}, All rights reserved."
+		},
+		"theme": {
+			"system": "System",
+			"dark": "Dark",
+			"light": "Light"
 		},
 		"system": {
 			"loading": "Loading"

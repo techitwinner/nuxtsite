@@ -1,67 +1,37 @@
 <template>
-  <footer class="footer">
-    <div class="container-1">
-      <section class="flex flex-col gap-2">
-        <img
-            src="https://files.techit.win/images/logos/techit.win/techitThawiangLogoOneBlack40.svg"
-            class="w-16 h-16 block dark:hidden mb-2"
-            alt="Logo"
-        />
-        <img
-            src="https://files.techit.win/images/logos/techit.win/techitThawiangLogoOneWhite40.svg"
-            class="w-16 h-16 hidden dark:block mb-2"
-            alt="Logo"
-        />
-        <h3 class="m-0">{{$t('generic.identity.me.name.firstLast')}}</h3>
-          <p v-if="!props.tagLine" class="select-none text-[14px] opacity-50"><strong>Project Nuxtsite</strong> &bull; <strong>Powered by</strong> <ULink class="border-b border-dashed hover:border-solid border-black" to="https://dailitation.xyz">dailitation.xyz</ULink></p>
-          <p v-if="props.tagLine" class="select-none text-[14px] opacity-50">{{props.tagLine}}</p>
-      </section>
-    </div>
-    <div class="container-2">
-      <div class="border-t sm:border-r b-div">
-        <section class="top">
-          <p class="m-0">{{$t('ui.footer.category.siteMap')}}</p>
+  <footer class="sticky z-[999]">
+    <div class="footer ice border-t p-10">
+      <aside class="flex flex-col gap-0">
+        <section class="flex flex-col gap-2">
+          <img alt="Techit&apos;s logo" class="w-16 h-16" src="https://files.techit.win/images/logos/techit.win/techitThawiangLogo40.svg"/>
+          <p class="text-2xl font-bold">{{$t('generic.identity.me.name.firstLast')}}</p>
         </section>
-        <section class="bottom">
-          <ULink v-for="item in footerSiteMap" class="text-[16px] transition-all opacity-50 hover:opacity-100" :to="item.link" >{{item.name}}</ULink>
-        </section>
-      </div>
-      <div class="border-t sm:border-r b-div">
-        <section class="top">
-          <p class="m-0">{{$t('ui.footer.category.legal')}}</p>
-        </section>
-        <section class="bottom">
-          <ULink v-for="item in footerLegal" class="text-[16px] transition-all opacity-50 hover:opacity-100" :to="item.link" >{{item.name}}</ULink>
-        </section>
-      </div>
-      <div class="border-t sm:border-r b-div">
-        <section class="top">
-          <p class="m-0">{{$t('ui.footer.category.bookmark')}}</p>
-        </section>
-        <section class="bottom">
-          <ULink target="_blank" v-for="item in footerBookmark" class="text-[16px] transition-all opacity-50 hover:opacity-100" :to="item.link" ><i class="ph ph-arrow-square-out mr-1"></i>{{item.name}}</ULink>
-        </section>
-      </div>
-      <div class="border-t b-div">
-        <section class="top">
-          <p class="m-0">{{$t('ui.footer.category.social')}}</p>
-        </section>
-        <section class="bottom">
-          <ULink target="_blank" v-for="item in footerSocial" class="text-[16px] transition-all opacity-50 hover:opacity-100" :to="item.link" ><i :class="['ph mr-1', item.icon]"></i>{{item.name}}</ULink>
-        </section>
-      </div>
-    </div>
-    <div class="container-1">
-      <section class="flex flex-col">
-        <p class="text-sm opacity-50">&copy; 2023 - {{currentYear}} — {{$t('generic.identity.me.name.firstLast')}}</p>
-        <p class="text-sm opacity-50">{{$t('ui.footer.respectiveOwner')}}</p>
-        <div class="flex flex-row gap-4 mt-1">
-          <ULink v-for="item in footerA" class="text-sm transition-all opacity-50 hover:opacity-100 border-b b-link" :to="item.link" >{{item.name}}</ULink>
-        </div>
-      </section>
+        <p>{{ $t('ui.footer.copyright', { year: currentYear, name: t('generic.identity.me.name.firstLast') }) }}</p>
+      </aside>
+      <nav>
+        <h6 class="footer-title">{{$t('ui.footer.category.siteMap')}}</h6>
+        <nuxt-link :href="link.link" v-for="link in footerSiteMap" class="link link-hover">{{ link.name }}</nuxt-link>
+      </nav>
+      <nav>
+        <h6 class="footer-title">{{$t('ui.footer.category.bookmark')}}</h6>
+        <nuxt-link :href="link.link" v-for="link in footerBookmark" class="link link-hover">{{ link.name }}</nuxt-link>
+      </nav>
+<!--      <nav>-->
+<!--        <h6 class="footer-title">{{$t('ui.footer.category.legal')}}</h6>-->
+<!--        <nuxt-link :href="link.link" v-for="link in footerLegal" class="link link-hover">{{ link.name }}</nuxt-link>-->
+<!--      </nav>-->
+      <nav>
+        <h6 class="footer-title">{{$t('ui.footer.category.social')}}</h6>
+        <nuxt-link :href="link.link" v-for="link in footerSocial" class="link link-hover">{{ link.name }}</nuxt-link>
+      </nav>
     </div>
   </footer>
 </template>
+<style scoped>
+.footer-title {
+  @apply font-source-serif;
+}
+</style>
 <script setup lang="ts">
   import { useI18n } from 'vue-i18n';
   const { t } = useI18n();
@@ -79,8 +49,8 @@
   const footerSiteMap = computed(() => [
     {name: t('ui.navigate.blog'), link: localePath('/blog')},
     {name: t('ui.navigate.contact'), link: localePath('/contact')},
-    {name: t('ui.navigate.projects'), link: localePath('/projects')},
-    {name: t('ui.navigate.tools'), link: localePath('/tools')},
+    // {name: t('ui.navigate.projects'), link: localePath('/projects')},
+    // {name: t('ui.navigate.tools'), link: localePath('/tools')},
   ]);
   const footerLegal = computed(() => [
     {name: t('ui.navigate.copyrightNotice'), link: localePath('/copyright-notice')},
@@ -98,40 +68,3 @@
     {name: 'X (Twitter)', icon: 'ph-x-logo', link: 'https://x.com/techitwinner/'},
   ]);
 </script>
-<style scoped>
-  .footer {
-    @apply w-full flex flex-col;
-    .container-1 {
-      @apply w-full p-8 border-t border-black dark:border-white border-opacity-10 dark:border-opacity-10;
-      section {
-        @apply items-center;
-      }
-    }
-    .container-2 {
-      @apply w-full flex flex-col sm:flex-row;
-      div {
-        @apply w-full px-8 py-4 sm:p-8;
-        background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, rgba(0, 0, 0, 0) 100%);
-        transition: all 0.2s cubic-bezier(var(--easeOut));
-        .top {
-          @apply h-fit sm:h-[120px];
-          h5 {
-            @apply mb-1 sm:m-0;
-          }
-        }
-        .bottom {
-          @apply flex flex-col items-start gap-1;
-        }
-      }
-      div:hover {
-        transition: all 0.2s cubic-bezier(var(--easeOut));
-        background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.05) 100%);
-      }
-      @media (prefers-color-scheme: dark) {
-        div:hover {
-          background: linear-gradient(0deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.05) 100%);
-        }
-      }
-    }
-  }
-</style>

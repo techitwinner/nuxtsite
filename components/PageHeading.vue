@@ -1,11 +1,15 @@
 <template>
-<section class="flex flex-col h-fit mb-6">
-    <section :class="['flex flex-col', justifyClass]">
-        <p class="font-bold text-6xl my-4 sm:text-7xl">{{title}}</p>
-        <p v-if="subTitle">{{subTitle}}</p>
-    </section>
-</section>
+  <section class="paragraph">
+    <p class="text-5xl md:text-6xl font-bold font-source-serif">{{title}}</p>
+    <p>{{subTitle}}</p>
+  </section>
 </template>
+
+<style>
+.paragraph {
+  @apply flex flex-col gap-4 items-center text-center;
+}
+</style>
 
 <script lang="ts">
 import { defineComponent, computed } from 'vue';
@@ -25,6 +29,11 @@ props: {
       type: String,
       default: 'left',
       validator: (value: string) => ['left', 'center', 'right'].includes(value)
+    },
+    head: {
+      type: String,
+      default: 'h1',
+      validator: (value: string) => ['h1', 'h2', 'h3', 'h4'].includes(value)
     }
 },
   setup(props) {
@@ -39,8 +48,24 @@ props: {
       }
     });
 
+    const headingClass = computed(() => {
+      switch (props.head) {
+        case 'h1':
+          return 'text-6xl font-bold';
+        case 'h2':
+          return 'text-4xl font-bold';
+        case 'h3':
+          return 'text-2xl font-bold';
+        case 'h4':
+          return 'font-bold';
+        default:
+          return 'text-6xl font-bold';
+      }
+    });
+
     return {
-      justifyClass
+      justifyClass,
+      headingClass
     };
   }
 });

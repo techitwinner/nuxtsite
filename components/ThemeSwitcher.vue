@@ -1,39 +1,31 @@
 <template>
-  <div class="inline-flex">
-    <ClientOnly>
-      <UTooltip text="System/Light/Dark" :popper="{ strategy: 'absolute' }">
-        <UButton square @click="switchColorMode" size="xl" color="white" variant="solid">
-          <i :class="['text-[24px]', phosphorIconName]"></i>
-        </UButton>
-      </UTooltip>
-    </ClientOnly>
+  <div class="theme-controller">
+    <button @click="cycleTheme" class="btn btn-square btn-ghost btn-circle">
+      <icon :name="currentIcon" class="h-6 w-6"/>
+    </button>
   </div>
 </template>
 
 <script setup lang="ts">
-import { capitalize } from 'vue'
-const colorMode = useColorMode()
+import { computed } from 'vue'
+import { useTheme } from '~/composables/useThemeSwitch'
+import {useI18n} from "vue-i18n";
 
-const ColorModeList = ['light', 'dark', 'system'] as const
-type ColorMode = (typeof ColorModeList)[number]
+const { currentTheme, cycleTheme } = useTheme()
+const {t} = useI18n()
 
-const phosphorIconName = computed(() => {
-  switch (colorMode.preference) {
-    case 'light':
-      return 'ph ph-moon';
-    case 'dark':
-      return 'ph-fill ph-moon';
-    case 'system':
-    default:
-      return 'ph ph-monitor';
-  }
-});
-
-const switchColorMode = () => {
-  const currentIndex = ColorModeList.indexOf(colorMode.preference as ColorMode)
-  const nextIndex = (currentIndex + 1) % ColorModeList.length
-  colorMode.preference = ColorModeList[nextIndex]
+const themeIcons = {
+  system: 'ph:monitor',
+  light: 'ph:sun',
+  dark: 'ph:moon'
 }
-</script>
 
-<style></style>
+const themeLabel = {
+  system: t('ui.theme.system'),
+  light: t('ui.theme.light'),
+  dark: t('ui.theme.dark')
+}
+
+const currentIcon = computed(() => themeIcons[currentTheme.value])
+const currentThemeLabel = computed(() => themeLabel[currentTheme.value])
+</script>

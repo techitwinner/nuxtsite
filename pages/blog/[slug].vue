@@ -1,30 +1,36 @@
 <template>
-  <div>
+  <div class="ct -mt-20">
     <ClientOnly>
-      <div v-if="post">
-        <div class="flex flex-col max-w-[1024px] mx-auto border-x b-div">
-          <img v-if="coverImageUrl" :src="coverImageUrl" :alt="post.attributes.title" class="w-full aspect-[18/9] object-cover">
+      <section v-if="post" class="page-main">
+        <div class="blog-slug-child">
+          <LazyNuxtImg :src="coverImageUrl" class="aspect-[14/9] w-full rounded-2xl"/>
         </div>
-        <div class="flex flex-col gap-3 max-w-[1024px] mx-auto px-4 py-8 border-x border-b b-div">
-          <UBreadcrumb :links="breadcrumbSlug" />
-          <UDivider/>
-          <h1 class="text-5xl tracking-tighter font-bold">{{ post.attributes.title }}</h1>
-          <p class="opacity-50">{{ post.attributes.summary }}</p>
-          <section class="text-base items-center flex gap-1"><i class="text-[24px] ph ph-clock"></i>{{ formattedDate }}</section>
+        <div class="flex flex-col w-full max-w-[56rem] justify-center items-center gap-8 p-4 mt-8">
+          <PageHeading :title="post.attributes.title" :subTitle="post.attributes.summary"/>
         </div>
-        <div class="max-w-[1024px] mx-auto px-4 py-8 border-x b-div gap-2 flex flex-col">
+        <div class="blog-slug-child flex-row">
+          <section class="addt">
+            <p class="font-source-serif font-bold">DATE</p>
+            <p class="text-base">{{formattedDate}}</p>
+          </section>
+          <div class="divider divider-horizontal"/>
+          <section class="addt">
+            <p class="font-source-serif font-bold">TAG</p>
+            <nuxt-link :href="localePath(`/blog/tag/${post.attributes.tag}`)" class="btn btn-primary btn-sm rounded-full">{{post.attributes.tag}}</nuxt-link>
+          </section>
+        </div>
+        <div class="blog-slug-child">
           <div class="prose prose-slate dark:prose-invert prose-sm md:prose-base prose-h1:mb-5 prose-h2:my-4 prose-pre:text-sm prose-pre:m-0 prose-li:my-1 max-w-none" v-html="compiledContent"></div>
         </div>
-      </div>
-      <div v-else-if="error" class="max-w-4xl mx-auto px-4 py-8 text-red-500">
-        {{ error }}
-      </div>
-      <div v-else class="max-w-4xl mx-auto px-4 py-8">
+      </section>
+      <section v-else-if="error" class="page-main">
+        <PageHeading :title="error"/>
+      </section>
+      <section v-else class="max-w-4xl mx-auto px-4 py-8">
         Loading...
-      </div>
+      </section>
     </ClientOnly>
   </div>
-
 </template>
 
 <script setup lang="ts">
@@ -47,24 +53,7 @@ const localePath = useLocalePath()
 const config = useRuntimeConfig()
 const { fetchPostBySlug } = useBlogPosts()
 
-const post = ref(null)
-const error = ref(null)
-
-const fetchPost = async (slug: string) => {
-  try {
-    post.value = await fetchPostBySlug(slug)
-  } catch (e) {
-    throw error;
-  }
-}
-
-onMounted(() => {
-  fetchPost(route.params['slug'] as string)
-})
-
-watch(() => route.params['slug'], (newSlug) => {
-  fetchPost(newSlug as string)
-});
+const { data: post, error } = await useAsyncData('post', () => fetchPostBySlug(route.params['slug'] as string))
 
 const compiledContent = computed(() => {
   return post.value ? compileMarkdown(post.value.attributes.content as string) : 'Oh no, the system cannot compile your markdown post, we are sorry'
@@ -77,29 +66,10 @@ const coverImageUrl = computed(() => {
 });
 
 const formattedDate = computed(() => {
-  return post.value ? format(new Date(post.value?.attributes?.publishedAt), 'MMMM dd, yyyy - HH:mm') : '';
-});
-
-let breadcrumbSlug = ref([]);
-
-watchEffect(() => {
-  if (post.value) {
-    breadcrumbSlug.value = [{
-      label: t('ui.navigate.home'),
-      icon: 'ph:house',
-      to: localePath('/')
-    }, {
-      label: t('ui.navigate.blog'),
-      icon: 'ph:chats-teardrop',
-      to: localePath('/blog')
-    }, {
-      label: post.value.attributes.title || '',
-      icon: 'i-heroicons-link'
-    }];
-  }
+  return post.value ? format(new Date(post.value?.attributes?.publishedAt), 'MMM dd, yyyy') : '';
 });
 </script>
 
 <style>
-/* Add any additional styles here */
+/**/
 </style>

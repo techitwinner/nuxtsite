@@ -1,97 +1,68 @@
 <script setup lang="ts">
   import { useI18n } from 'vue-i18n'
   import { useLocalePath } from '#imports'
-  import { computed, ref } from 'vue'
+  import { computed, inject } from 'vue'
+  import {useRoute} from "vue-router";
   import {clearError} from "#app";
 
   const { t } = useI18n()
   const localePath = useLocalePath()
+  const route = useRoute()
+
+  const isActive = (link) => {
+    return route.path === link;
+  };
 
   const navBarItems = computed(() => [
-    { key: 1, label: t('ui.navigate.home'), to: localePath('/') },
-    { key: 2, label: t('ui.navigate.blog'), to: localePath('/blog') },
-    { key: 3, label: t('ui.navigate.projects'), to: localePath('/projects') },
-    { key: 4, label: t('ui.navigate.tools'), to: localePath('/tools') },
+    { key: 0, icon: 'ph:house', label: t('ui.navigate.home'), to: localePath('/') },
+    { key: 1, icon: 'ph:chat-circle-text', label: t('ui.navigate.blog'), to: localePath('/blog') },
+    // { key: 2, icon: 'ph:briefcase',label: t('ui.navigate.projects'), to: localePath('/projects') },
+    // { key: 3, icon: 'ph:wrench',label: t('ui.navigate.tools'), to: localePath('/tools') },
   ])
 
-  const isDrawerOpen = ref(false);
+  const closeNavDrawer = inject<() => void>('closeNavDrawer')
+  const showEmoji = computed(() => route.path !== localePath('/'));
 
-  const toggleDrawer = () => {
-    isDrawerOpen.value = !isDrawerOpen.value;
-  };
+  function beforeLeave(el) {
+    el.classList.add('emoji-exit');
+  }
 </script>
 
 <template>
-  <div :class="['fixed z-[1000] bg-slate-50 dark:bg-slate-900 bg-opacity-90 dark:bg-opacity-90 backdrop-blur-lg w-full h-full top-0', isDrawerOpen ? 'drawer-anim-out translate-x-0' : 'drawer-anim-in translate-x-full']">
-    <div>
-      <nav>
-        <div class="flex flex-row items-center p-4 border-b b-div justify-between">
-          <h5 class="m-0">Navigation</h5>
-          <section class="flex flex-row gap-2">
-            <LanguageSwitcher :display-locale-value="false"/>
-            <ThemeSwitcher/>
-            <UButton square color="black" @click="toggleDrawer" size="xl"><i class="ph ph-x text-[24px]"></i></UButton>
-          </section>
+  <div class="w-full sticky top-0 z-[1000] drawer">
+    <input id="navDrawer" type="checkbox" class="drawer-toggle" />
+    <section class="drawer-content">
+      <nav class="navbar border-b ice">
+        <div class="navbar-start">
+          <label for="navDrawer" aria-label="open sidebar" class="flex md:hidden btn btn-circle btn-ghost">
+            <icon name="ph:list" class="h-6 w-6"/>
+          </label>
+          <nuxt-link :href="localePath('/')" class="hidden md:flex btn btn-ghost text-xl rounded-full transition-all font-source-serif">
+            {{ $t('generic.identity.me.name.firstLast') }}
+          </nuxt-link>
+        </div>
+        <div class="navbar-center hidden md:flex">
+          <nuxt-link v-for="link in navBarItems" :href="link.to" :class="['btn btn-sm rounded-full font-medium transition-all',{'btn-primary': isActive(link.to)},{'btn-ghost': !isActive(link.to)}]">
+            {{ link.label }}
+          </nuxt-link>
+        </div>
+        <div class="navbar-center md:hidden">
+          <nuxt-link :href="localePath('/')" class="btn btn-ghost text-xl rounded-full transition-all">
+            {{ $t('generic.identity.me.name.firstLast') }}
+          </nuxt-link>
+        </div>
+        <div class="navbar-end">
+          <LanguageSwitcher/>
+          <ThemeSwitcher class="hidden md:flex"/>
         </div>
       </nav>
-      <nav class="flex flex-col justify-between">
-        <div class="p-4 space-y-2">
-          <ULink v-for="item in navBarItems"
-                 @click="toggleDrawer"
-                 :to="item.to"
-                 active-class="border-solid text-primary uLink-yesIcon"
-                 class="flex gap-2 text-5xl sm:text-6xl md:text-7xl active:opacity-75 items-center uppercase uLink-noIcon">
-            <i :class="['ph-fill ph-circle']"></i><span>{{item.label}}</span>
-          </ULink>
-        </div>
-
-      </nav>
+    </section>
+    <div class="drawer-side">
+      <label for="navDrawer" aria-label="Close drawer sidebar" class="drawer-overlay"></label>
+      <ul class="menu ice border-r min-h-full w-80 p-2">
+        <li class="flex flex-row mb-2"><label for="navDrawer" aria-label="Open drawer sidebar" class="btn btn-circle btn-ghost"><icon name="ph:x" class="h-6 w-6"/></label><ThemeSwitcher class="p-0"/></li>
+        <li v-for="link in navBarItems"><nuxt-link :href="link.to" class="items-center flex gap-2" @click="closeNavDrawer"><icon :name="link.icon" class="w-5 h-5"/>{{link.label}}</nuxt-link></li>
+      </ul>
     </div>
   </div>
-  <nav class="flex sticky z-[100] top-0 w-full bg-slate-100 dark:bg-slate-950 bg-opacity-50 dark:bg-opacity-50 backdrop-blur-lg items-center justify-center h-[72px] border-black dark:border-white border-b border-opacity-10 dark:border-opacity-10">
-    <div class="flex w-full px-4 h-[72px] items-center justify-between">
-      <div class="flex flex-row gap-4 items-center">
-        <section class="flex flex-row gap-4 items-center">
-          <ULink :to="localePath('/')" class="flex flex-row items-center justify-center h-full active:scale-95">
-            <img src="https://files.techit.win/images/logos/techit.win/techitThawiangLogoOneBlack40.svg" class="w-11 h-11 block dark:hidden" alt=""/>
-            <img src="https://files.techit.win/images/logos/techit.win/techitThawiangLogoOneWhite40.svg" class="w-11 h-11 hidden dark:block" alt=""/>
-          </ULink>
-        </section>
-        <div class="hidden sm:flex flex-row gap-2 h-fit">
-          <ULink v-for="item in navBarItems"
-                 :to="item.to"
-                 active-class="font-bold bg-black text-white dark:bg-white dark:text-black"
-                 class="flex text-[17px] gap-2 py-1 px-2 active:opacity-75 transition-all items-center uppercase rounded-md bg-none jetbrains"
-                 inactive-class="hover:bg-black hover:bg-opacity-10">
-            <span>{{item.label}}</span>
-          </ULink>
-        </div>
-      </div>
-      <div class="flex flex-row gap-3 h-fit">
-        <UButton square variant="solid" color="white" @click="toggleDrawer" class="flex sm:hidden" size="xl"><i class="ph ph-list text-[24px]"></i></UButton>
-        <LanguageSwitcher class="hidden sm:block" :display-locale-value="false"/>
-        <ThemeSwitcher class="hidden sm:block"/>
-      </div>
-    </div>
-  </nav>
 </template>
-
-<style scoped>
-.drawer-anim-in {
-  transition: all 0.35s cubic-bezier(var(--easeIn));
-}
-.drawer-anim-out {
-  transition: all 0.35s cubic-bezier(var(--easeOut));
-}
-
-.uLink-noIcon {
-  i {
-    @apply hidden
-  }
-}
-.uLink-yesIcon {
-  i {
-    @apply flex
-  }
-}
-</style>
