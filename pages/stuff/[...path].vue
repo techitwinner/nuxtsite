@@ -12,8 +12,8 @@
       </div>
       <div v-if="!isLoading && files.length > 0" class="w-full">
         <section class="font-mono">
-          <button class="btn btn-ghost text-start justify-start btn-sm btn-block" v-if="path !== ''" @click="goToParentDirectory">../</button>
-          <div class="grid grid-cols-12 btn btn-ghost text-start justify-start btn-sm" v-for="(file, index) in files" :key="index" @click="handleFileClick(file)">
+          <button class="select-none cursor-pointer h-8 bg-base-200 hover:bg-base-100 active:opacity-50 px-4 py-1 rounded-lg w-full text-sm text-base-content text-start justify-start" v-if="path !== '/'" @click="goToParentDirectory">../</button>
+          <div class="select-none cursor-pointer grid grid-cols-12 h-8 bg-base-200 hover:bg-base-100 active:opacity-50 px-4 py-1 rounded-lg w-full text-sm text-base-content text-start justify-start" v-for="(file, index) in files" :key="index" @click="handleFileClick(file)">
             <p class="col-span-11 md:col-span-9 lg:col-span-6 gap-2 flex items-center">
               <icon class="w-5 h-5" :name="file.type === 'directory' ? 'ph:folder-duotone' : 'ph:file-duotone'" />{{file.name}}
             </p>
@@ -100,5 +100,10 @@ onMounted(() => {
 </script>
 
 <style scoped>
-/* Add custom styling here if needed */
+.page-enter-active,
+.layout-enter-active,
+.page-leave-active,
+.layout-leave-active {
+  transition: none;
+}
 </style>
