@@ -27,9 +27,25 @@
     }
 }
 
+@keyframes scaleInBlur {
+    from {
+        opacity: 0;
+        filter: blur(100px);
+        scale: 0.75;
+    }
+    to {
+        filter: none;
+        scale: 1;
+    }
+}
+
 .fade-in {
     opacity: 0;
     animation: fadeIn 1s ease-in-out forwards;
+}
+
+.scale-in-blur {
+    animation: scaleIn .35s cubic-bezier(var(--bounceOut)) forwards;
 }
 
 .fade-in-but-faster {
