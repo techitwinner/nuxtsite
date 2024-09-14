@@ -22,20 +22,20 @@
 			"type": {
 				"MIT": "MIT License"
 			}
-		},
-		"navigate": {
-			"category": {
-				"legal": "Legal"
-			},
-			"pages": {
-				"blog": "Blog",
-				"contact": "Contact",
-				"copyrightNotice": "Copyright Notice"
-			}
 		}
 	},
 	"pages": {
+		"about": {
+			"hello": "Sawasdee Krub!",
+			"content": {
+				"1": "My name is Techit Thawiang. I'm Thai, born in Thailand and living in Chonburi which is in Thailand. Software Development is what I'm interested in.",
+				"2": "I can do designing as well, even though I'm not good at it. I'm interested to make small money out of both software development and designing but I'm too nervous. An advice is super welcome!",
+				"3": "In my free time I mostly writing code, mostly this website lol. I've been coding since this website was called 'Techit's Home'",
+				"3dot1": "Techit's Home"
+			}
+		},
 		"blog": {
+			"personalBlog": "Personal Blog",
 			"description": "A place for me to posts whatever I wanted to. Such as updating my life, reviewing stuff, posting something smart or just yap about my life. All will be here.",
 			"allPosts": "All Posts",
 			"allTags": "All Tags",
@@ -49,14 +49,13 @@
 			"aboutMe": {
 				"1": "That's my name.",
 				"whoAmI": {
-					"content": "\nI'm a Grade 9 student at Kophotuayngamwittaya School, planning to stay for the Science-Math program. I love development, making web interfaces, and exploring graphic design, making games, fonts, and more.",
+					"content": "I'm a Grade 9 student at Kopho Tuay Ngam Wittaya School, planning to stay for the Science-Math program. I love development, making web interfaces, and exploring graphic design, making games, fonts, and more.",
 					"title": "Who am I?"
 				}
 			},
 			"contact": {
-				"title": "Contact Me",
-				"description": "I’d love to hear from you! Whether you have a question, a project in mind, or just want to connect, feel free to reach out. Let’s start a conversation and explore how we can work together."
-
+				"description": "I’d love to hear from you! Whether you have a question, a project in mind, or just want to connect, feel free to reach out. Let’s start a conversation and explore how we can work together.",
+				"title": "Contact Me"
 			},
 			"blog": {
 				"title": "Latest Posts",
@@ -78,6 +77,11 @@
 					}
 				}
 			}
+		},
+		"projects": {
+			"title": "My Projects",
+			"description": "A showcase of my personal projects and creations, crafted using the skills and knowledge I've got through my experiences.",
+			"allProjects": "All Projects"
 		}
 	},
 	"ui": {
@@ -94,6 +98,7 @@
 		},
 		"navigate": {
 			"blog": "Blog",
+			"about": "About Me",
 			"Tag": "Tag",
 			"contact": "Contact",
 			"copyrightNotice": "Copyright Notice",
