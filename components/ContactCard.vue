@@ -2,7 +2,7 @@
   <div class="grid grid-cols-1 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
     <div v-for="tech in technologies.items" :key="tech.category" class="first:rounded-l-2xl last:rounded-r-2xl bg-base-100 border-base-200 border">
       <div class=" p-4 flex flex-col items-start border-b">
-        <p class="text-2xl font-bold font-source-serif">{{tech.category}}</p>
+        <p class="text-2xl font-bold font-serif">{{tech.category}}</p>
       </div>
       <div class=" p-4 flex flex-col items-start">
         <ul class="list-disc ml-6">

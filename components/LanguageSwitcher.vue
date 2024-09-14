@@ -39,7 +39,7 @@
 
 <template>
   <div class="dropdown dropdown-end">
-    <div tabindex="0" role="button" class="btn btn-ghost btn-circle"><icon name="ph:globe" class="swap-off fill-current h-6 w-6"/></div>
+    <div tabindex="0" role="button" class="btn btn-ghost btn-circle"><icon name="ph:translate" class="swap-off fill-current h-6 w-6"/></div>
     <ul tabindex="0" class="dropdown-content menu bg-base-100 rounded-box z-[1] w-52 p-2 shadow">
       <li v-for="item in localeList" :key="item.key" :class="locale.value === item.labelCode ? 'bg-primary' : ''" @click="item.click"><a>{{item.label}}</a></li>
     </ul>

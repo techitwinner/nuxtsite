@@ -3,24 +3,27 @@
     <ClientOnly>
       <section v-if="post" class="page-main">
         <div class="blog-slug-child">
-          <LazyNuxtImg :src="coverImageUrl" class="aspect-[14/9] w-full rounded-2xl"/>
+          <LazyNuxtImg :src="coverImageUrl" class="aspect-[14/9] w-full rounded-2xl border border-base-200"/>
         </div>
         <div class="flex flex-col w-full max-w-[56rem] justify-center items-center gap-8 p-4 mt-8">
           <PageHeading :title="post.attributes.title" :subTitle="post.attributes.summary"/>
         </div>
-        <div class="blog-slug-child flex-row">
-          <section class="addt">
-            <p class="font-source-serif font-bold">DATE</p>
+        <div class="flex w-full max-w-[56rem] justify-center items-center gap-8 p-4 mt-8 flex-row">
+          <section class="flex-1 justify-center text-center">
+            <p class="font-serif font-bold">DATE</p>
             <p class="text-base">{{formattedDate}}</p>
           </section>
           <div class="divider divider-horizontal"/>
-          <section class="addt">
-            <p class="font-source-serif font-bold">TAG</p>
+          <section class="flex-1 justify-center text-center">
+            <p class="font-serif font-bold">TAG</p>
             <nuxt-link :href="localePath(`/blog/tag/${post.attributes.tag}`)" class="btn btn-primary btn-sm rounded-full">{{post.attributes.tag}}</nuxt-link>
           </section>
         </div>
         <div class="blog-slug-child">
-          <div class="prose prose-slate dark:prose-invert prose-sm md:prose-base prose-h1:mb-5 prose-h2:my-4 prose-pre:text-sm prose-pre:m-0 prose-li:my-1 max-w-none" v-html="compiledContent"></div>
+          <div
+              class="grid sm:grid-cols-1 prose prose-slate dark:prose-invert prose-sm md:prose-base prose-h1:mb-5 prose-h2:my-4 prose-pre:text-sm prose-pre:m-0 prose-pre:whitespace-pre-wrap prose-pre:overflow-x-auto prose-pre:max-w-full prose-pre:dark:bg-white prose-pre:dark:bg-opacity-5 prose-li:my-1 max-w-none"
+              v-html="compiledContent">
+          </div>
         </div>
       </section>
       <section v-else-if="error" class="page-main">
@@ -69,7 +72,3 @@ const formattedDate = computed(() => {
   return post.value ? format(new Date(post.value?.attributes?.publishedAt), 'MMM dd, yyyy') : '';
 });
 </script>
-
-<style>
-/**/
-</style>

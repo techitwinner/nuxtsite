@@ -1,9 +1,9 @@
 export const useProjectLists = () => {
-    const { find, findOne } = useStrapi()
+    const { find } = useStrapi()
 
     const fetchAllProjects = async () => {
-        const response = await find('nuxtsite-blog-posts', {
-            populate: 'deep,4'
+        const response = await find('nuxtsite-project-lists', {
+            populate: 'deep,6'
         })
         return response.data || []
     }

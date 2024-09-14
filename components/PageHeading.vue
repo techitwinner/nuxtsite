@@ -1,7 +1,7 @@
 <template>
   <section class="paragraph">
-    <p class="text-5xl md:text-6xl font-bold font-source-serif">{{title}}</p>
-    <p>{{subTitle}}</p>
+    <p class="text-5xl md:text-6xl font-bold font-serif">{{title}}</p>
+    <span v-html="subTitle"></span>
   </section>
 </template>
 

@@ -1,7 +1,7 @@
 <template>
   <div class="theme-controller">
-    <button @click="cycleTheme" class="btn btn-square btn-ghost btn-circle">
-      <icon :name="currentIcon" class="h-6 w-6"/>
+    <button @click="cycleTheme" :class="['btn btn-square btn-ghost btn-circle', props.additionalClass]">
+      <icon :name="currentIcon" :class="props.additionalIconClass === '' ? 'w-6 h-6' : props.additionalIconClass"/>
     </button>
   </div>
 </template>
@@ -10,6 +10,11 @@
 import { computed } from 'vue'
 import { useTheme } from '~/composables/useThemeSwitch'
 import {useI18n} from "vue-i18n";
+
+const props = defineProps({
+  additionalClass: String,
+  additionalIconClass: String,
+})
 
 const { currentTheme, cycleTheme } = useTheme()
 const {t} = useI18n()

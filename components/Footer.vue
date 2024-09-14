@@ -9,7 +9,7 @@
         <p>{{ $t('ui.footer.copyright', { year: currentYear, name: t('generic.identity.me.name.firstLast') }) }}</p>
       </aside>
       <nav>
-        <h6 class="footer-title">{{$t('ui.footer.category.siteMap')}}</h6>
+        <LazyNuxtLink :href="localePath('/sitemap')" class="footer-title link link-hover">{{$t('ui.footer.category.siteMap')}}</LazyNuxtLink>
         <nuxt-link :href="link.link" v-for="link in footerSiteMap" class="link link-hover">{{ link.name }}</nuxt-link>
       </nav>
       <nav>
@@ -29,7 +29,7 @@
 </template>
 <style scoped>
 .footer-title {
-  @apply font-source-serif;
+  @apply font-serif;
 }
 </style>
 <script setup lang="ts">
@@ -48,9 +48,8 @@
   ]);
   const footerSiteMap = computed(() => [
     {name: t('ui.navigate.blog'), link: localePath('/blog')},
-    {name: t('ui.navigate.contact'), link: localePath('/contact')},
-    // {name: t('ui.navigate.projects'), link: localePath('/projects')},
-    // {name: t('ui.navigate.tools'), link: localePath('/tools')},
+    {name: t('ui.navigate.about'), link: localePath('/about')},
+    {name: t('ui.navigate.projects'), link: localePath('/projects')},
   ]);
   const footerLegal = computed(() => [
     {name: t('ui.navigate.copyrightNotice'), link: localePath('/copyright-notice')},

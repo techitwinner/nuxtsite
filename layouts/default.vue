@@ -42,13 +42,16 @@ provide('closeNavDrawer', closeNavDrawer)
       .main-child-row {
         @apply flex w-full max-w-[64rem] items-start gap-8 p-4;
       }
+      .main-child-start {
+        @apply flex-col w-full max-w-[64rem] justify-start items-start gap-8 p-4;
+      }
       .main-child, .main-child-row {
         .paragraph {
           @apply flex flex-col gap-4 items-center text-center;
         }
       }
       .blog-card-child {
-        @apply flex flex-col w-full max-w-[56rem] justify-center items-center gap-8 p-4 mt-8;
+        @apply flex flex-col w-full max-w-[64rem] justify-center items-center gap-8 p-4 mt-8;
       }
       .main-child-no-display {
         @apply w-full max-w-[64rem] justify-center items-center gap-8 p-4;

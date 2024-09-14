@@ -10,7 +10,7 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        "source-serif": ['"Source Serif 4"', '"Noto Sans Thai"', 'serif'],
+        "serif": ['"Source Serif 4"', '"Noto Serif Thai"', 'serif'],
       },
     },
   },
@@ -28,8 +28,8 @@ module.exports = {
           "primary-content": "#FFFFFF",
           "secondary": "#232323",
           "secondary-content": "#EBEBEB",
-          "accent": "#0055FF",
-          "accent-content": "#D5E4FF",
+          "accent": "#0075FF",
+          "accent-content": "#ebf4ff",
           "neutral": "#323c4a",
           "neutral-content": "#d8dbde",
           "base-100": "#F1F5F9",
@@ -51,8 +51,8 @@ module.exports = {
           "primary-content": "#000000",
           "secondary": "#d8d8d8",
           "secondary-content": "#131313",
-          "accent": "#0055FF",
-          "accent-content": "#D5E4FF",
+          "accent": "#0075FF",
+          "accent-content": "#ebf4ff",
           "neutral": "#323c4a",
           "neutral-content": "#d8dbde",
           "base-100": "#1E293B",
