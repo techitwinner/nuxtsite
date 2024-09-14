@@ -15,7 +15,6 @@ body {
     font-optical-sizing: auto;
     font-style: normal;
     font-feature-settings: 'liga' 1, 'calt' 1, 'case' 1, 'ss01' 1, 'ss02' 1, 'ss03' 1, 'cv06' 1, 'cv10' 1, 'cv11' 1;
-
 }
 
 @supports (font-variation-settings: normal) {
@@ -87,7 +86,7 @@ body {
 }
 
 .ice {
-    @apply bg-slate-100 bg-opacity-90 dark:bg-slate-900 dark:bg-opacity-95 border-black dark:border-white dark:border-opacity-10 border-opacity-10 backdrop-blur-lg;
+    @apply bg-slate-100 bg-opacity-90 dark:bg-slate-900 dark:bg-opacity-90 border-black dark:border-white dark:border-opacity-10 border-opacity-10 backdrop-blur-lg;
 }
 
 #container {
