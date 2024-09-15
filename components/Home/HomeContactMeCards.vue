@@ -1,11 +1,11 @@
 <script setup lang="ts">
 const {t} = useI18n()
 const contact = [
-  {name: 'E-mail', url: 'mailto:techit@dailitation.xyz', icon: 'ph:envelope-duotone'},
   {name: 'GitHub', url: 'https://github.com/techitwinner', icon: 'ph:github-logo-duotone'},
   {name: 'X (Twitter)', url: 'https://x.com/techitwinner', icon: 'ph:x-logo-duotone'},
   {name: 'Telegram', url: 'https://t.me/techitdotwin', icon: 'ph:telegram-logo-duotone'},
-  {name: 'Discord', url: 'https://discord.gg/xwPNqpdsYK', icon: 'ph:discord-logo-duotone'}
+  {name: 'Discord', url: 'https://discord.gg/xwPNqpdsYK', icon: 'ph:discord-logo-duotone'},
+  {name: 'Keybase', url: 'https://keybase.io/techitwinner', icon: 'carbon:logo-keybase'}
 ]
 </script>
 
@@ -16,4 +16,6 @@ const contact = [
       <p>{{contact.name}}</p>
     </nuxt-link>
   </section>
+  <div class="divider">{{$t('generic.dictionary.or')}}</div>
+  <LazyMailAddressPlainText size="lg" showAllAddress/>
 </template>
