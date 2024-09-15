@@ -1,24 +1,24 @@
 <template>
   <div class="w-full">
     <div class="w-full h-full overflow-y-auto bg-base-200 p-4 flex flex-col items-start gap-4">
-      <div v-if="error" class="text-error">
-        Error: {{ error.message || 'Failed to load files.' }}
-      </div>
-      <div v-if="isLoading">Loading files...</div>
-      <p class="text-5xl font-mono" v-if="path">{{ path }}</p>
+      <p class="text-5xl font-mono" v-if="path">STUFF</p>
       <div class="flex flex-row w-full">
         <input class="input input-sm font-mono w-full" v-model="inputPath" @keyup.enter="navigateToPath" placeholder="Enter directory path" />
         <slot/>
       </div>
+      <div v-if="error" class="text-error">
+        Error: {{ error.message || 'Failed to load files.' }}
+      </div>
+      <div v-if="isLoading" class="font-mono">Loading files...</div>
       <div v-if="!isLoading && files.length > 0" class="w-full">
-        <section class="font-mono">
-          <button class="select-none cursor-pointer h-8 bg-base-200 hover:bg-base-100 active:opacity-50 px-4 py-1 rounded-lg w-full text-sm text-base-content text-start justify-start" v-if="path !== '/'" @click="goToParentDirectory">../</button>
-          <div class="select-none cursor-pointer grid grid-cols-12 h-8 bg-base-200 hover:bg-base-100 active:opacity-50 px-4 py-1 rounded-lg w-full text-sm text-base-content text-start justify-start" v-for="(file, index) in files" :key="index" @click="handleFileClick(file)">
-            <p class="col-span-11 md:col-span-9 lg:col-span-6 gap-2 flex items-center">
-              <icon class="w-5 h-5" :name="file.type === 'directory' ? 'ph:folder-duotone' : 'ph:file-duotone'" />{{file.name}}
-            </p>
-            <p class="hidden md:flex lg:col-span-2">{{file.type}}</p>
-            <p class="hidden lg:flex col-span-4">{{file.mtime}}</p>
+        <section class="font-mono flex flex-wrap gap-2">
+          <button class="items-center iconB flex flex-col cursor-pointer bg-base-200 pb-2 hover:bg-base-100 active:opacity-50 border-2 border-white border-opacity-0 hover:border-opacity-100 dark:hover:border-opacity-100 dark:border-opacity-0 px-4 py-1 rounded-lg w-32 text-sm text-base-content text-start justify-start" v-if="path !== '/'" @click="goToParentDirectory">
+            <icon class="w-16 h-16" name="ph:folder-open-thin"/>
+            ../
+          </button>
+          <div class="items-center iconB flex flex-col break-words cursor-pointer bg-base-200 pb-2 hover:bg-base-100 active:opacity-50 border-2 border-white border-opacity-0 hover:border-opacity-100 dark:hover:border-opacity-100 dark:border-opacity-0 px-4 py-1 rounded-lg w-32 text-sm text-base-content text-start justify-start" v-for="(file, index) in files" :key="index" @click="handleFileClick(file)">
+            <icon class="w-16 h-16" :name="file.type === 'directory' ? 'ph:folder-thin' : 'ph:file-thin'" />
+            <span class="text-sm text-center nameT nameR px-1">{{file.name}}</span>
           </div>
         </section>
       </div>
@@ -105,5 +105,14 @@ onMounted(() => {
 .page-leave-active,
 .layout-leave-active {
   transition: none;
+}
+
+.iconB:hover {
+  .nameT {
+    @apply bg-black text-white px-1 rounded;
+  }
+  .nameR {
+    @apply px-1 rounded text-black bg-white;
+  }
 }
 </style>
