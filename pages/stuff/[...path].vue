@@ -1,6 +1,6 @@
 <template>
   <div class="w-full">
-    <div class="w-full h-full overflow-y-auto bg-base-200 p-8 flex flex-col items-start gap-4">
+    <div class="w-full h-full overflow-y-auto bg-base-200 p-4 flex flex-col items-start gap-4">
       <div v-if="error" class="text-error">
         Error: {{ error.message || 'Failed to load files.' }}
       </div>
@@ -32,7 +32,7 @@ import { useRoute, useRouter } from 'vue-router';
 import { useLocalePath } from '#i18n';
 
 definePageMeta({
-  layout: 'nothing'
+  layout: 'stuff-listing'
 })
 
 const baseUrl = 'https://files.techit.win';
