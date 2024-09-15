@@ -13,13 +13,9 @@
         <nuxt-link :href="link.link" v-for="link in footerSiteMap" class="link link-hover">{{ link.name }}</nuxt-link>
       </nav>
       <nav>
-        <h6 class="footer-title">{{$t('ui.footer.category.bookmark')}}</h6>
-        <nuxt-link :href="link.link" v-for="link in footerBookmark" class="link link-hover">{{ link.name }}</nuxt-link>
+        <h6 class="footer-title">{{$t('ui.footer.category.legal')}}</h6>
+        <nuxt-link :href="link.link" v-for="link in footerLegal" class="link link-hover">{{ link.name }}</nuxt-link>
       </nav>
-<!--      <nav>-->
-<!--        <h6 class="footer-title">{{$t('ui.footer.category.legal')}}</h6>-->
-<!--        <nuxt-link :href="link.link" v-for="link in footerLegal" class="link link-hover">{{ link.name }}</nuxt-link>-->
-<!--      </nav>-->
       <nav>
         <h6 class="footer-title">{{$t('ui.footer.category.social')}}</h6>
         <nuxt-link :href="link.link" v-for="link in footerSocial" class="link link-hover">{{ link.name }}</nuxt-link>
@@ -53,12 +49,6 @@
   ]);
   const footerLegal = computed(() => [
     {name: t('ui.navigate.copyrightNotice'), link: localePath('/copyright-notice')},
-  ]);
-  const footerBookmark = computed(() => [
-    {name: 'Arch Linux', link: 'https://archlinux.org'},
-    {name: 'Fedora Linux', link: 'https://fedoraproject.org'},
-    {name: 'Bun', link: 'https://bun.sh'},
-    {name: 'Nuxt', link: 'https://nuxt.com'},
   ]);
   const footerSocial = computed(() => [
     {name: 'GitHub', icon: 'ph-github-logo', link: 'https://github.com/techitwinner/'},
