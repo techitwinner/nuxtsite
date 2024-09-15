@@ -10,8 +10,9 @@
         <div class="items-start flex flex-col justify-start gap-8 w-full" v-for="stuff in items" :key="stuff.key">
           <h2 class="text-5xl font-bold font-serif">{{ stuff.category }}</h2>
           <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-2 w-full">
-            <LazyNuxtLink v-for="item in stuff.content" :href="[0, 3].includes(stuff.key) ? item.url : (!item.disabled ? `https://${item.url}` : '')"   :class="[item.disabled ? 'opacity-35 cursor-not-allowed active:translate-y-1' : 'opacity-100 cursor-pointer text-base text-center dark:hover:bg-slate-100 hover:bg-slate-900 dark:hover:text-slate-900 hover:text-slate-100 hover:shadow-xl hover:-translate-y-1 active:shadow-sm active:translate-y-0','border-base-200 dark:border-base-100 border items-center flex flex-col p-4 shadow-sm bg-slate-100 dark:bg-slate-900 gap-2 transition-all rounded-2xl', item.tooLong ? 'col-span-2' : '']">
-              <icon :name="item.icon" class="h-10 w-10"/>
+            <LazyNuxtLink v-for="item in stuff.content" :href="[0, 3].includes(stuff.key) ? item.url : (!item.disabled ? `https://${item.url}` : '')"   :class="[item.disabled ? 'opacity-35 cursor-not-allowed active:translate-y-1' : 'opacity-100 cursor-pointer dark:hover:bg-slate-100 hover:bg-slate-900 dark:hover:text-slate-900 hover:text-slate-100 hover:shadow-xl hover:-translate-y-1 active:shadow-sm active:translate-y-0','text-base text-center border-base-200 dark:border-base-100 border items-center flex flex-col p-4 shadow-sm bg-slate-100 dark:bg-slate-900 gap-2 transition-all rounded-2xl', item.tooLong ? 'col-span-2' : '']">
+              <LazyNuxtImg v-if="item.customIcon" :src="item.icon" class="h-10 w-10 rounded"/>
+              <icon v-else :name="item.icon" class="h-10 w-10"/>
               <div class="select-none">
                 <p class="font-bold">{{item.name}}</p>
                 <p class="text-sm opacity-50">{{item.url}}</p>
@@ -67,7 +68,7 @@ const items = [
       {
         name: 'S3 Storage',
         url: 'storage.techit.win',
-        icon: 'ph:folder-open-duotone'
+        icon: 'ph:database-duotone'
       },
       {
         name: 'Static Files',
@@ -94,7 +95,8 @@ const items = [
       {
         name: 'Weblate',
         url: 'weblate.techit.win',
-        icon: 'ph:globe-duotone'
+        icon: 'ph:globe-duotone',
+        disabled: true,
       },
       {
         name: 'API',
@@ -123,6 +125,37 @@ const items = [
         url: 'github.com/techitwinner/nuxtsite',
         icon: 'ph:github-logo-duotone',
         tooLong: true,
+      },
+      {
+        name: 'Arch Linux',
+        url: 'archlinux.org',
+        icon: 'mdi:arch',
+      },
+      {
+        name: 'Debian GNU/Linux',
+        url: 'debian.org',
+        icon: 'mdi:debian',
+      },
+      {
+        name: 'Unix in Thailand',
+        url: 'unix.in.th',
+        icon: 'https://files.techit.win/images/logos/unix.in.th/Unix.in.TH-Logo.svg',
+        customIcon: true,
+      },
+      {
+        name: 'Iconify',
+        url: 'iconify.design',
+        icon: 'simple-icons:iconify',
+      },
+      {
+        name: 'Nuxt',
+        url: 'nuxt.com',
+        icon: 'logos:nuxt-icon',
+      },
+      {
+        name: 'Bun',
+        url: 'bun.sh',
+        icon: 'logos:bun',
       },
     ]
   },
