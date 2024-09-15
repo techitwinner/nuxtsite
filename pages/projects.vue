@@ -13,8 +13,5 @@
   </div>
 </template>
 <script setup lang="ts">
-import ArticlesCardTray from "~/components/Blog/BlogArticlesCardTray.vue";
-import TagBadges from "~/components/Blog/BlogTagBadges.vue";
-
 const {t} = useI18n()
 </script>
