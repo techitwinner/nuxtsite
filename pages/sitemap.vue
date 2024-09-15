@@ -55,8 +55,8 @@ const items = [
         icon: 'ph:user-duotone'
       },
       {
-        name: 'Stuff',
-        url: localePath('/stuff'),
+        name: 'Files',
+        url: localePath('/files'),
         icon: 'ph:hard-drives-duotone'
       },
     ]
