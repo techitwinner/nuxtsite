@@ -23,7 +23,7 @@ const localePath = useLocalePath()
         </p>
         <p>
           <strong class="font-serif text-2xl">Logo Usage</strong><br/>
-          The Logo that are all inside <LazyNuxtLink class="link link-info" target="_blank" :href="localePath('/stuff/images/logos/techit.win')">this folder</LazyNuxtLink> is protected and may not be used as a primary logo by any third party. However, it may be used for commercial purposes with express permission, provided it acknowledges the original creator and is not the primary branding identity of the third party.
+          The Logo that are all inside <LazyNuxtLink class="link link-info" target="_blank" :href="localePath('/files/images/logos/techit.win')">this folder</LazyNuxtLink> is protected and may not be used as a primary logo by any third party. However, it may be used for commercial purposes with express permission, provided it acknowledges the original creator and is not the primary branding identity of the third party.
         </p>
         <p>
           <strong class="font-serif text-2xl">Website Code</strong><br/>
@@ -40,7 +40,7 @@ const localePath = useLocalePath()
           เว็บไซต์นี้และเนื้อหาทั้งหมด รวมถึงแต่ไม่จำกัดเพียงโลโก้ โค้ดต้นฉบับ การออกแบบ ข้อความ รูปภาพ และสื่ออื่นๆ ที่สร้างโดย เตชิต ทาเวียง เป็นทรัพย์สินทางปัญญาของ เตชิต ทาเวียง และได้รับการคุ้มครองภายใต้กฎหมายลิขสิทธิ์ที่เกี่ยวข้อง ห้ามใช้สื่อเหล่านี้โดยไม่ได้รับอนุญาตก่อน</p>
         <p>
           <strong class="font-serif text-2xl">การใช้งานโลโก้</strong><br/>
-          โลโก้ทั้งหมดที่อยู่ใน <LazyNuxtLink class="link link-info" target="_blank" :href="localePath('/stuff/images/logos/techit.win')">โฟลเดอร์นี้</LazyNuxtLink> ได้รับการปกป้องและไม่อาจใช้เป็นโลโก้หลักโดยบุคคลที่สามได้ อย่างไรก็ตาม สามารถใช้โลโก้เพื่อวัตถุประสงค์ทางการค้าได้โดยต้องได้รับอนุญาตอย่างชัดเจน โดยต้องระบุผู้สร้างดั้งเดิมและไม่ถือเป็นเอกลักษณ์แบรนด์หลักของบุคคลที่สาม        </p>
+          โลโก้ทั้งหมดที่อยู่ใน <LazyNuxtLink class="link link-info" target="_blank" :href="localePath('/files/images/logos/techit.win')">โฟลเดอร์นี้</LazyNuxtLink> ได้รับการปกป้องและไม่อาจใช้เป็นโลโก้หลักโดยบุคคลที่สามได้ อย่างไรก็ตาม สามารถใช้โลโก้เพื่อวัตถุประสงค์ทางการค้าได้โดยต้องได้รับอนุญาตอย่างชัดเจน โดยต้องระบุผู้สร้างดั้งเดิมและไม่ถือเป็นเอกลักษณ์แบรนด์หลักของบุคคลที่สาม        </p>
         <p>
           <strong class="font-serif text-2xl">โค้ดของเว็บไซต์นี้</strong><br/>
           ซอร์สโค้ดของเว็บไซต์นี้เผยแพร่ภายใต้ใบอนุญาต MIT <LazyNuxtLink class="link link-info" target="_blank" href="https://github.com/techitwinner/nuxtsite">ที่นี่</LazyNuxtLink> อนุญาตให้ทุกคนใช้ แก้ไข และแจกจ่ายโค้ดสำหรับโครงการส่วนตัวหรือเชิงพาณิชย์ โดยต้องคงใบอนุญาตและประกาศลิขสิทธิ์ดั้งเดิมไว้ ใบอนุญาตนี้ใช้กับโค้ดของเว็บไซต์เท่านั้น และไม่ขยายไปถึงองค์ประกอบการออกแบบ รูปภาพ หรือเนื้อหา        </p>
@@ -56,7 +56,7 @@ const localePath = useLocalePath()
         </p>
         <p>
           <strong class="font-serif text-2xl">Logo-Verwendung</strong><br/>
-          Die Logos, die sich alle in <LazyNuxtLink class="link link-info" target="_blank" :href="localePath('/stuff/images/logos/techit.win')">diesem Ordner</LazyNuxtLink> befinden, sind geschützt und dürfen von Dritten nicht als primäres Logo verwendet werden. Sie dürfen jedoch mit ausdrücklicher Genehmigung für kommerzielle Zwecke verwendet werden, sofern der ursprüngliche Ersteller erwähnt wird und es sich nicht um die primäre Markenidentität des Dritten handelt.
+          Die Logos, die sich alle in <LazyNuxtLink class="link link-info" target="_blank" :href="localePath('/files/images/logos/techit.win')">diesem Ordner</LazyNuxtLink> befinden, sind geschützt und dürfen von Dritten nicht als primäres Logo verwendet werden. Sie dürfen jedoch mit ausdrücklicher Genehmigung für kommerzielle Zwecke verwendet werden, sofern der ursprüngliche Ersteller erwähnt wird und es sich nicht um die primäre Markenidentität des Dritten handelt.
         </p>
         <p>
           <strong class="font-serif text-2xl">Website-Code</strong><br/>
@@ -74,7 +74,7 @@ const localePath = useLocalePath()
         </p>
         <p>
           <strong class="font-serif text-2xl">徽标使用</strong><br/>
-          <LazyNuxtLink class="link link-info" target="_blank" :href="localePath('/stuff/images/logos/techit.win')">此文件夹</LazyNuxtLink> 内的所有徽标均受保护，不得被任何第三方用作主要徽标。但是，在获得明确许可的情况下，可以将其用于商业目的，前提是它承认原始创作者并且不是第三方的主要品牌标识。
+          <LazyNuxtLink class="link link-info" target="_blank" :href="localePath('/files/images/logos/techit.win')">此文件夹</LazyNuxtLink> 内的所有徽标均受保护，不得被任何第三方用作主要徽标。但是，在获得明确许可的情况下，可以将其用于商业目的，前提是它承认原始创作者并且不是第三方的主要品牌标识。
         </p>
         <p>
           <strong class="font-serif text-2xl">网站代码</strong><br/>
